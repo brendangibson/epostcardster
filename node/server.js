@@ -5,7 +5,7 @@ var http = require('http'),
 
 	SAVE_DIR = "/tmp/test/",
 	IP = "74.220.220.78",
-	PORT = 8080,
+	PORT = 80,
 
 	handleRetrievePostcard = function (req,res) {
 		var params = querystring.parse(url.parse(req.url).query);
@@ -79,7 +79,7 @@ handleRequest = function (req, res) {
 
 
 
-http.createServer(handleRequest).listen(PORT,IP);
+http.createServer(handleRequest).listen(PORT);
 
-console.log('Server running at http://' + IP + ':' + PORT);
+console.log('Server running on port ' + PORT);
 
