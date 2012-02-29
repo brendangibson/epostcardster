@@ -2,6 +2,17 @@ var io = require('socket.io').listen(80);
 
 io.sockets.on('connection', function (socket) {
   socket.broadcast.emit('user connected');
+  
+  io.sockets.emit('this', { will: 'be received by everyone'});
+
+  socket.on('pageturn', function (from, msg) {
+    io.sockets.emit('pageturn',{direction: 'forward'});
+  });
+  
+  socket.on('pageturn', function (from, msg) {
+    socket.broadcast.emit('pageturn',{direction: 'forward'});
+  });
+
 });
 
 //var http = require('http'),
