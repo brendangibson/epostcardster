@@ -2,21 +2,11 @@ var io = require('socket.io').listen(80);
 io.set("origins","brendangibson.com:*");
 
 io.sockets.on('connection', function (socket) {
-  socket.broadcast.emit('user connected');
-  
-  socket.broadcast.send('hi there');
-  socket.send('hi all');
-  
-  io.sockets.emit('pageturn', {direction: 'forward'});
-  
-  io.sockets.emit('this', { will: 'be received by everyone'});
+  socket.on('message', function (from, msg) {
+    console.log("from:" + from + " msg:" + msg);
+    socket.broadcast.send('broadcast' + from + msg );
+    socket.send('send' + from + msg );
 
-  socket.on('pageturn', function (from, msg) {
-    io.sockets.emit('pageturn',{direction: 'forward'});
-  });
-  
-  socket.on('pageturn', function (from, msg) {
-    socket.broadcast.emit('pageturn',{direction: 'forward'});
   });
 
 });
