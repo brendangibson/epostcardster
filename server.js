@@ -2,17 +2,10 @@ var io = require('socket.io').listen(80);
 io.set("origins","brendangibson.com:*");
 
 io.sockets.on('connection', function (socket) {
-  socket.on('message', function (from, msg) {
-    console.log("from:" + from + " msg:" + msg);
-    socket.broadcast.send('broadcast' + from + msg );
-    socket.send('send' + from + msg );
 
-  });
-  socket.on('pageturn', function (from, msg) {
-    console.log("pt from:" + from + " msg:" + msg);
-    socket.broadcast.send('pt broadcast' + from + msg );
-    socket.send('pt send' + from + msg );
-
+  socket.on('pageturn', function (data) {
+    console.log("pt data: " + data);
+    socket.broadcast.send('pageturn',data);
   });
 });
 
