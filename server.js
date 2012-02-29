@@ -8,7 +8,12 @@ io.sockets.on('connection', function (socket) {
     socket.send('send' + from + msg );
 
   });
+  socket.on('pageturn', function (from, msg) {
+    console.log("pt from:" + from + " msg:" + msg);
+    socket.broadcast.send('pt broadcast' + from + msg );
+    socket.send('pt send' + from + msg );
 
+  });
 });
 
 //var http = require('http'),
