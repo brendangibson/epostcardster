@@ -1,5 +1,5 @@
 var io = require('socket.io').listen(80);
-io.set("origins","http://brendangibson.com");
+io.set("origins","brendangibson.com:*");
 
 io.sockets.on('connection', function (socket) {
   socket.broadcast.emit('user connected');
