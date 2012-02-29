@@ -3,6 +3,11 @@ var io = require('socket.io').listen(80);
 io.sockets.on('connection', function (socket) {
   socket.broadcast.emit('user connected');
   
+  socket.broadcast.send('hi there');
+  socket.send('hi all');
+  
+  io.sockets.emit('pageturn', {direction: 'forward'});
+  
   io.sockets.emit('this', { will: 'be received by everyone'});
 
   socket.on('pageturn', function (from, msg) {
