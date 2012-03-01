@@ -10,8 +10,8 @@ io.sockets.on('connection', function (socket) {
     console.log("pt data: " + data);
     console.log("pt data: " + dataStr);
 
-    socket.broadcast.send('pageturn',dataStr);
-//    socket.broadcast.send(dataStr);
+//    socket.broadcast.send('pageturn',dataStr);
+    socket.broadcast.send(data);
 //    socket.send('pageturn',dataStr);
 //    socket.send(dataStr);
   });
