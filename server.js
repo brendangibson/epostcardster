@@ -12,7 +12,8 @@ io.sockets.on('connection', function (socket) {
 
     socket.broadcast.send('pageturn',dataStr);
     socket.broadcast.send(dataStr);
-
+    socket.send('pageturn',dataStr);
+    socket.send(dataStr);
   });
 });
 
