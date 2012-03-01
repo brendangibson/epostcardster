@@ -11,7 +11,7 @@ io.sockets.on('connection', function (socket) {
     console.log("pt data: " + dataStr);
 
 //    socket.broadcast.send('pageturn',dataStr);
-    socket.broadcast.send(data);
+    socket.broadcast.send(dataStr);
 //    socket.send('pageturn',dataStr);
 //    socket.send(dataStr);
   });
