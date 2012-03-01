@@ -5,7 +5,11 @@ io.sockets.on('connection', function (socket) {
 
   socket.on('pageturn', function (data) {
     console.log("pt data: " + data);
+    console.log("pt data: " + JSON.stringify(data));
+
     socket.broadcast.send('pageturn',data);
+    socket.broadcast.send(data);
+
   });
 });
 
