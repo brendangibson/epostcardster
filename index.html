@@ -634,7 +634,8 @@
 	        
 	            // Common request fields (required)
 	            + "key=" + googleAPIKey
-	            + "&q="+searchTerm
+	            + "&q="+searchTerm;
+	            /*
 	            + "&Sources=Image"
 	            
 	            // Common request fields (optional)
@@ -664,7 +665,7 @@
 	            // JSON-specific request fields (optional)
 	            + "&JsonType=callback"
 	            + "&callback=" + callback;
-	
+	*/
 		$.ajax({
 			url: requestStr,
 			crossDomain: true,
