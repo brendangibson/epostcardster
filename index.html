@@ -1084,6 +1084,14 @@
 		setSearch: function (search) {
 			this.search = search;
 			return this;
+		},
+		
+		initGoogle: function () {
+			this.setSearch(googleSearch);
+		},
+		
+		initBing: function () {
+			this.setSearch(bingSearch);
 		}
 	};
     
