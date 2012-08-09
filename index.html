@@ -627,12 +627,14 @@
 	};
 
 	var googleAPIKey = "AIzaSyCuWV8UgbwhuDyXsMAYr9dAdL4mHeiSMJg";
+	var cx = '001898302656551539860:kvjbk_jo1ii';
 
 	var googleSearch = function (searchTerm, count, aspect, style, size, callback, context) {
     
 	        var requestStr = "https://www.googleapis.com/customsearch/v1?cx=017576662512468239146:omuauf_lfve"
 	        
 	            // Common request fields (required)
+	            + "cx=" + cx
 	            + "key=" + googleAPIKey
 	            + "&q="+searchTerm;
 	            /*
