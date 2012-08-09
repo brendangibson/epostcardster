@@ -631,9 +631,12 @@
 
 	var googleSearch = function (searchTerm, count, aspect, style, size, callback, context) {
     
-	        var requestStr = "https://www.googleapis.com/customsearch/v1?"
+	       // var requestStr = "https://www.googleapis.com/customsearch/v1?"
+                   var requestStr = "https://ajax.googleapis.com/ajax/services/search/images" 
+
 	        
 	            // Common request fields (required)
+                     + "v=" + "1.0"
 	            + "cx=" + cx
 	            + "&key=" + googleAPIKey
 	            + "&q="+searchTerm;
@@ -645,23 +648,23 @@
 	           + "&Market=en-us"
 	            + "&Adult=Off";*/
 	        if (style === "Photo") {        
-	            requestStr += "&imgType=photo";
+	            requestStr += "&imgtype=photo";
 	        }
 	        if (size === "Large") {
-	            requestStr += "&imgSize=large";
+	            requestStr += "&imgsz=large";
 	        }
 	        if (size === "Small") {
-	            requestStr += "&imgSize=small";
+	            requestStr += "&imgsz=small";
 	        }
 	        if (size === "Medium") {
-	            requestStr += "&imgSize=medium";
+	            requestStr += "&imgsz=medium";
 	        }/*
 	        if (aspect === "Wide") {
 	            requestStr += "&Image.Filters=Aspect:Wide";
 	        }
 	*/
 	            // Image-specific request fields (optional)
-	            requestStr += "&num="+count;
+	            requestStr += "&rsz="+count;
 	/*
 	            // JSON-specific request fields (optional)
 	            + "&JsonType=callback"
