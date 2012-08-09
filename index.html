@@ -635,35 +635,34 @@
 	        
 	            // Common request fields (required)
 	            + "cx=" + cx
-	            + "key=" + googleAPIKey
+	            + "&key=" + googleAPIKey
 	            + "&q="+searchTerm;
-	            /*
-	            + "&Sources=Image"
 	            
+	            + "&searchType=image";
+	            /*
 	            // Common request fields (optional)
 	            + "&Version=2.0"
-	            + "&Market=en-us"
-	            + "&Adult=Off";
+	           + "&Market=en-us"
+	            + "&Adult=Off";*/
 	        if (style === "Photo") {        
-	            requestStr += "&Image.Filters=Style:Photo";
+	            requestStr += "&imgType=photo";
 	        }
 	        if (size === "Large") {
-	            requestStr += "&Image.Filters=Size:Large";
+	            requestStr += "&imgSize=large";
 	        }
 	        if (size === "Small") {
-	            requestStr += "&Image.Filters=Size:Small";
+	            requestStr += "&imgSize=small";
 	        }
 	        if (size === "Medium") {
-	            requestStr += "&Image.Filters=Size:Medium";
-	        }
+	            requestStr += "&imgSize=medium";
+	        }/*
 	        if (aspect === "Wide") {
 	            requestStr += "&Image.Filters=Aspect:Wide";
 	        }
-	
+	*/
 	            // Image-specific request fields (optional)
-	            requestStr += "&Image.Count="+count
-	            + "&Image.Offset=0"
-	
+	            requestStr += "&num="+count;
+	/*
 	            // JSON-specific request fields (optional)
 	            + "&JsonType=callback"
 	            + "&callback=" + callback;
