@@ -1113,7 +1113,7 @@
         $(document).ready(function () {
 
 		var id = getParameterByName("id"),
-			myPostcard = new ePostcardster.Postcard().init($(".postcard"), baseURL).setSearch(googleSearch);
+			myPostcard = new ePostcardster.Postcard().init($(".postcard"), baseURL).initGoogle();
 			
 		var updateBackgroundImage = function (response) {
 			myPostcard.updateBackgroundImage(response);
