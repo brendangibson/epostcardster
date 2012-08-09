@@ -764,10 +764,21 @@
 	        updateLocalStorage: function () {
 	            localStorage.setItem(this.baseSearchTerm, JSON.stringify(this.imageURLs));
 	        },
+	        
+	        getBackground: function () {},
+	        setBackground: function (response) {},
+	        
+	        setBingBackground: function (response) {
+	        	this.imageURLs.background = response.SearchResponse.Image.Results;
+	        },
+	        
+	        setGoogleBackground: function (response) {
+	        	this.imageURLs.background = response.items[0].pagemap.cse_image;
+	        },
 	    
 		updateBackgroundImage: function (response) {
 			if (null !== response) {
-				this.imageURLs.background = response.SearchResponse.Image.Results;
+				this.setBackground(response);
 				this.$postcard.trigger(this.EVENT_BACKGROUND_IMAGE);
 			}
 		},
@@ -1088,10 +1099,12 @@
 		
 		initGoogle: function () {
 			this.setSearch(googleSearch);
+			this.setBackground = this.setGoogleBackground;
 		},
 		
 		initBing: function () {
 			this.setSearch(bingSearch);
+			this.setBackground = this.setBingBackground;
 		}
 	};
     
