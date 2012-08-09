@@ -768,7 +768,6 @@
 	            localStorage.setItem(this.baseSearchTerm, JSON.stringify(this.imageURLs));
 	        },
 	        
-	        getBackground: function () {},
 	        setBackground: function (response) {},
 	        
 	        setBingBackground: function (response) {
@@ -787,9 +786,9 @@
 		},
 	    
 	        setBackgroundImage: function () {
-			if (this.imageURLs && this.imageURLs.background && this.imageURLs.background[0].MediaUrl) {
-				this.$mainImage.attr("src",this.imageURLs.background[0].MediaUrl);
-				this.$stamp.find("img").attr("src",this.imageURLs.background[0].MediaUrl);
+			if (this.imageURLs && this.imageURLs.background) {
+				this.$mainImage.attr("src",this.imageURLs.background);
+				this.$stamp.find("img").attr("src",this.imageURLs.background);
 			} 
 		},
 	    
@@ -797,6 +796,24 @@
 	            this.search(this.baseSearchTerm, 1, "Wide", "Photo", "Large", this.updateBackgroundImage, this);
 	        },
 	    
+                 setLetter: function () {},
+                 setBingLetter: function (response) {
+                     var results = response.SearchResponse.Image.Results;
+	            for (var i in results) {
+                         if (results.hasOwnProperty(i)) {
+                             this.imageURLs.letter[i] = response.SearchResponse.Image.Results[i].MediaUrl;
+                         }
+                     }
+                 },
+                 setGoogleLetter: function (response) {
+                     var results = response.SearchResponse.Image.Results;
+	            for (var i in results) {
+                         if (results.hasOwnProperty(i)) {
+                             this.imageURLs.letter[i] = responseData.results[i].url;
+                         }
+                     }
+                 },  
+
 	        updateLetterImages: function (response) {
 			if (null !== response) {
 				this.imageURLs.letter = response.SearchResponse.Image.Results;
@@ -809,7 +826,7 @@
 			
 			if (this.imageURLs && this.imageURLs.letter) {
 				for (i = 0; i < this.imageURLs.letter.length; i++) {
-					$(".l" + i).css("backgroundImage","url(" + this.imageURLs.letter[i].MediaUrl + ")");
+					$(".l" + i).css("backgroundImage","url(" + this.imageURLs.letter[i] + ")");
 				}
 			}
 		},
@@ -818,6 +835,26 @@
 			this.search(this.baseSearchTerm + " -map -postcard", this.numLetters, null, null, "Small", this.updateLetterImages, this);
 	        },
 	        
+                 setMap: function () {},
+                 setGoogleMap: function (response) {
+
+                     var results = response.SearchResponse.Image.Results;
+	            for (var i in results) {
+                         if (results.hasOwnProperty(i)) {
+                             this.imageURLs.map[i] = responseData.results[i].url;
+                         }
+                     }
+                 },
+                 setBingMap: function (response) {
+                     var results = response.SearchResponse.Image.Results;
+	            for (var i in results) {
+                         if (results.hasOwnProperty(i)) {
+                             this.imageURLs.map[i] = response.SearchResponse.Image.Results[i].MediaUrl;
+                         }
+                     }
+                 },
+
+
 	        updateMapImage: function (response) {
 			this.imageURLs.map = response.SearchResponse.Image.Results;
 			this.$postcard.trigger(this.EVENT_MAP_IMAGE);
@@ -826,7 +863,7 @@
 	        setMapImage: function () {
 			var chosenLetter = Math.random*this.numLetters;
 			if (this.imageURLs && this.imageURLs.map && this.imageURLs.map[0]) {
-				$(".l"+chosenLetter).css("backgroundImage", "url(" + this.imageURLs.map[0].MediaUrl + ")");
+				$(".l"+chosenLetter).css("backgroundImage", "url(" + this.imageURLs.map[0] + ")");
 			}
 	        },
 	    
@@ -1103,11 +1140,14 @@
 		initGoogle: function () {
 			this.setSearch(googleSearch);
 			this.setBackground = this.setGoogleBackground;
+                           this.setLetter = this.setGoogleLetter;
 		},
 		
 		initBing: function () {
 			this.setSearch(bingSearch);
 			this.setBackground = this.setBingBackground;
+                           this.setLetter = this.setBingLetter;
+
 		}
 	};
     
