@@ -15,6 +15,9 @@
 		padding: 0;
 		background-image: url(map.jpg);
 	}
+	body.standalone {
+		background-image: none;
+	}
 
 	textarea, input, textarea:focus, input:focus {
 		outline: none;
@@ -46,7 +49,11 @@
 		transform: rotateZ(1deg);
 		
 	}
-	
+	.standalone .container {
+		margin: 20px 0 0 20px;
+		top: 0;
+	}	
+
 	.postcard {
 
 		width: 100%;
@@ -775,7 +782,7 @@
 	        },
 	        
 	        setGoogleBackground: function (response) {
-	        	this.imageURLs.background = responseData.results[0].url;
+	        	this.imageURLs.background = response.responseData.results[0].url;
 	        },
 	    
 		updateBackgroundImage: function (response) {
@@ -798,7 +805,8 @@
 	    
                  setLetter: function () {},
                  setBingLetter: function (response) {
-                     var results = response.SearchResponse.Image.Results;
+                    var results = response.SearchResponse.Image.Results;
+		    this.imageURLs.letter = [];	
 	            for (var i in results) {
                          if (results.hasOwnProperty(i)) {
                              this.imageURLs.letter[i] = response.SearchResponse.Image.Results[i].MediaUrl;
@@ -806,17 +814,18 @@
                      }
                  },
                  setGoogleLetter: function (response) {
-                     var results = response.SearchResponse.Image.Results;
+                    var results = response.responseData.results;
+		    this.imageURLs.letter = [];	
 	            for (var i in results) {
                          if (results.hasOwnProperty(i)) {
-                             this.imageURLs.letter[i] = responseData.results[i].url;
+                             this.imageURLs.letter[i] = results[i].url;
                          }
                      }
                  },  
 
 	        updateLetterImages: function (response) {
 			if (null !== response) {
-				this.imageURLs.letter = response.SearchResponse.Image.Results;
+				this.setLetter(response);
 				this.$postcard.trigger(this.EVENT_LETTER_IMAGES);
 			}
 		},
@@ -832,16 +841,16 @@
 		},
 	    
 	        getLetterImages: function () {
-			this.search(this.baseSearchTerm + " -map -postcard", this.numLetters, null, null, "Small", this.updateLetterImages, this);
+			this.search(this.baseSearchTerm + " -map -postcard", this.numLetters, null, null, "Medium", this.updateLetterImages, this);
 	        },
 	        
                  setMap: function () {},
                  setGoogleMap: function (response) {
 
-                     var results = response.SearchResponse.Image.Results;
+                    var results = response.SearchResponse.Image.Results;
 	            for (var i in results) {
                          if (results.hasOwnProperty(i)) {
-                             this.imageURLs.map[i] = responseData.results[i].url;
+                             this.imageURLs.map[i] = response.responseData.results[i].url;
                          }
                      }
                  },
@@ -856,7 +865,7 @@
 
 
 	        updateMapImage: function (response) {
-			this.imageURLs.map = response.SearchResponse.Image.Results;
+			this.setMap(response);
 			this.$postcard.trigger(this.EVENT_MAP_IMAGE);
 	        },
 	            
@@ -1141,22 +1150,36 @@
 			this.setSearch(googleSearch);
 			this.setBackground = this.setGoogleBackground;
                            this.setLetter = this.setGoogleLetter;
+			return this;
 		},
 		
 		initBing: function () {
 			this.setSearch(bingSearch);
 			this.setBackground = this.setBingBackground;
                            this.setLetter = this.setBingLetter;
-
+			return this;
 		}
 	};
     
-	var baseURL = "http://epostcardster.no.de/";
+	var baseURL = "http://epostcardster.no.de/",
+		defaultSalutation = "Greetings from",
+		defaultLocation = "Timbuktu",
+		defaultRegion = "Mali",
+		CLASS_STANDALONE = "standalone";
 
         $(document).ready(function () {
 
 		var id = getParameterByName("id"),
+			salutation = getParameterByName("salutation") || defaultSalutation,
+			location = getParameterByName("location") || defaultLocation,
+			region = getParameterByName("region") || defaultRegion,
+			standAlone = getParameterByName("standalone") || false,
+			
 			myPostcard = new ePostcardster.Postcard().init($(".postcard"), baseURL).initGoogle();
+
+		if (standAlone) {
+			$("body").addClass(CLASS_STANDALONE);
+		}
 			
 		var updateBackgroundImage = function (response) {
 			myPostcard.updateBackgroundImage(response);
@@ -1173,7 +1196,7 @@
 		if (id) {
 			myPostcard.retrieveFromServer(id);
 		} else {
-			myPostcard.setSalutation('Greetings from').setLocation('Timbuktu').setRegion('Mali').update();
+			myPostcard.setSalutation(salutation).setLocation(location).setRegion(region).update();
 		}
 	});	
 	 
