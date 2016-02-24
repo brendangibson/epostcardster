@@ -1,10 +1,11 @@
+console.log('Running epostcardster');
+
 var http = require('http'),
 	url = require("url"),
 	querystring = require("querystring"),
 	fs = require('fs'),
 
-	SAVE_DIR = "/tmp/test/",
-	IP = "74.220.220.78",
+	SAVE_DIR = "",
 	PORT = 80,
 
 	handleRetrievePostcard = function (req,res) {
