@@ -575,52 +575,61 @@
     
     // Replace the following string with the AppId you received from the
     // Bing Developer Center.
-    var AppId = "285BF47B1BBB09DE9C1940003B0255C537C03C0B";
+    var AppId = "hX8q/hNA6maP37uRosaIYXuhG2fqykPQOnvggiE9hSk";
 
     
     // Bing API 2.0 code sample demonstrating the use of the
     // Image SourceType over the JSON Protocol.
 	var bingSearch = function (searchTerm, count, aspect, style, size, callback, context) {
     
-	        var requestStr = "http://api.bing.net/json.aspx?"
+	        var requestStr = "https://api.datamarket.azure.com/Bing/Search/v1/Image?"
 	        
 	            // Common request fields (required)
-	            + "AppId=" + AppId
-	            + "&Query="+searchTerm
-	            + "&Sources=Image"
-	            
+	            //+ "AppId=" + AppId
+	            + "Query='"+searchTerm+"'"
+	           // + "&Sources=image"
+                + '&$format=json'
+//+'&$callback=' + callback	            
 	            // Common request fields (optional)
-	            + "&Version=2.0"
-	            + "&Market=en-us"
-	            + "&Adult=Off";
+	            /*+ "&Version=2.0"
+	            + "&Market=en-us"*/
+	            + "&Adult='Off'"
+                + "&ImageFilters='";
 	        if (style === "Photo") {        
-	            requestStr += "&Image.Filters=Style:Photo";
+	            requestStr += "Style:Photo%2B";
 	        }
 	        if (size === "Large") {
-	            requestStr += "&Image.Filters=Size:Large";
+	            requestStr += 'Size:Large%2B';
 	        }
 	        if (size === "Small") {
-	            requestStr += "&Image.Filters=Size:Small";
+	            requestStr += "Size:Small%2B";
 	        }
 	        if (size === "Medium") {
-	            requestStr += "&Image.Filters=Size:Medium";
+	            requestStr += "Size:Medium%2B";
 	        }
 	        if (aspect === "Wide") {
-	            requestStr += "&Image.Filters=Aspect:Wide";
+	            requestStr += "Aspect:Wide";
 	        }
+            requestStr += "'";
 	
 	            // Image-specific request fields (optional)
-	            requestStr += "&Image.Count="+count
-	            + "&Image.Offset=0"
-	
+	            requestStr += "&$top="+count
+	            + "&$skip=0"
+/*	
 	            // JSON-specific request fields (optional)
 	            + "&JsonType=callback"
 	            + "&JsonCallback=?";
-	
+*/	
 		$.ajax({
 			url: requestStr,
 			crossDomain: true,
-			dataType: "jsonp",
+cache: true,
+dataType: "jsonp",
+jsonp: '$callback',
+xhrFields: { withCredentials: true },
+            headers: {
+               'Authorization': 'Basic ' + btoa(':' + AppId)
+            },
 			success: function (data) {
 				callback.call(context,data);
 			},
@@ -782,7 +791,7 @@
 	        setBackground: function (response) {},
 	        
 	        setBingBackground: function (response) {
-	        	this.imageURLs.background = response.SearchResponse.Image.Results;
+	        	this.imageURLs.background = response.d.results[0].MediaUrl;
 	        },
 	        
 	        setGoogleBackground: function (response) {
@@ -809,11 +818,11 @@
 	    
                  setLetter: function () {},
                  setBingLetter: function (response) {
-                    var results = response.SearchResponse.Image.Results;
+                    var results = response.d.results;
 		    this.imageURLs.letter = [];	
 	            for (var i in results) {
                          if (results.hasOwnProperty(i)) {
-                             this.imageURLs.letter[i] = response.SearchResponse.Image.Results[i].MediaUrl;
+                             this.imageURLs.letter[i] = results[i].MediaUrl;
                          }
                      }
                  },
@@ -859,10 +868,10 @@
                      }
                  },
                  setBingMap: function (response) {
-                     var results = response.SearchResponse.Image.Results;
+                     var results = response.d.results;
 	            for (var i in results) {
                          if (results.hasOwnProperty(i)) {
-                             this.imageURLs.map[i] = response.SearchResponse.Image.Results[i].MediaUrl;
+                             this.imageURLs.map[i] = results[i].MediaUrl;
                          }
                      }
                  },
@@ -891,7 +900,7 @@
 	            
 			this.imageURLs = JSON.parse(localStorage.getItem(this.baseSearchTerm));
 	            
-			if (null === this.imageURLs || {} === this.imageURLs) {
+			if (null === this.imageURLs || Object.keys(this.imageURLs).length === 0) {
 				this.imageURLs = {};
 				this.getBackgroundImage();
 				this.getLetterImages();
@@ -1179,7 +1188,7 @@
 			region = getParameterByName("region") || defaultRegion,
 			standAlone = getParameterByName("standalone") || false,
 			
-			myPostcard = new ePostcardster.Postcard().init($(".postcard"), baseURL).initGoogle();
+			myPostcard = new ePostcardster.Postcard().init($(".postcard"), baseURL).initBing();
 
 		if (standAlone) {
 			$("body").addClass(CLASS_STANDALONE);
