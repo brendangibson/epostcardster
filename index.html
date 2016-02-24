@@ -887,7 +887,7 @@
 	            
 			this.imageURLs = JSON.parse(localStorage.getItem(this.baseSearchTerm));
 	            
-			if (null === this.imageURLs) {
+			if (null === this.imageURLs || {} === this.imageURLs) {
 				this.imageURLs = {};
 				this.getBackgroundImage();
 				this.getLetterImages();
