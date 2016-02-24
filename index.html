@@ -534,11 +534,11 @@
 			<div class="front side">
 				<img class="mainImage" src="#" alt="Postcard Background">
 				<input type="text" class="salutation" value="Greetings from" spellcheck="false">
-				<input class="region" type="text" value="Mali" spellcheck="false">
+				<input class="region" type="text" value="Antarctica" spellcheck="false">
 				<section class="locationWrapper">
 					<h2 class="locationShadow"></h2>
 					<h2 class="split_loc"></h2>
-					<input type="text" class="loc" value="Timbuktu" id="loc" spellcheck="false">
+					<input type="text" class="loc" value="Anvers Island" id="loc" spellcheck="false">
 				</section>
 
 				</div>
@@ -764,8 +764,12 @@
 			    stringToSplit = this.$location.val(),
 			    length = stringToSplit.length;
 			for (i = 0; i < length; i++) {
-			    if (stringToSplit.charAt(i)) {
-			    	split += '<span class="l' + i + '">' + stringToSplit.charAt(i) + "</span>";
+			    var character = stringToSplit.charAt(i);
+			    if (character) {
+				if (character === " ") {
+					character = "&nbsp;";
+				}
+			    	split += '<span class="l' + i + '">' + character + "</span>";
 			    }    
 			}    
 			return split;
@@ -1162,9 +1166,9 @@
 	};
     
 	var baseURL = "http://epostcardster.no.de/",
-		defaultSalutation = "Greetings from",
-		defaultLocation = "Timbuktu",
-		defaultRegion = "Mali",
+		defaultSalutation = "Ski time on",
+		defaultLocation = "Anvers Island",
+		defaultRegion = "Antarctica",
 		CLASS_STANDALONE = "standalone";
 
         $(document).ready(function () {
