@@ -59,6 +59,8 @@ var http = require('http'),
 
 handleRequest = function (req, res) {
 
+	console.log('request being handled');
+
 	try {
 		var pathname = url.parse(req.url).pathname;
 	 
@@ -80,7 +82,7 @@ handleRequest = function (req, res) {
 
 
 
-http.createServer(handleRequest).listen(PORT);
+http.createServer(handleRequest).listen(process.env.PORT || 8888);
 
-console.log('Server running on port ' + PORT);
+console.log('Server running');
 
