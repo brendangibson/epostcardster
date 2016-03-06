@@ -15,8 +15,6 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
   if (err) throw err;
   console.log('Connected to postgres! Getting schemas...');
 client.query('SELECT payload FROM postcard WHERE id = $1', [params.id], function(err, result) {
-    //call `done()` to release the client back to the pool
-    done();
 
     if(err) {
       return console.error('error running query', err);
