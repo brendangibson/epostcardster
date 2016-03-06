@@ -58,7 +58,7 @@ var http = require('http'),
 pg.connect(process.env.DATABASE_URL, function(err, client) {
   if (err) throw err;
   console.log('Connected to postgres! Getting schemas...');
-client.query('INSERT INTO postcards (payload) VALUES ($1)', [output], function(err, result) {
+client.query('INSERT INTO postcard (payload) VALUES ($1)', [output], function(err, result) {
 
       // handle an error from the query
       if(err) {
