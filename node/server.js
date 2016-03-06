@@ -4,8 +4,7 @@ var http = require('http'),
 	url = require("url"),
 	querystring = require("querystring"),
 	fs = require('fs'),
-	pg = require('pg');
-	SAVE_DIR = "",
+	pg = require('pg'),
 	PORT = 80,
 
 	handleRetrievePostcard = function (req,res) {
@@ -46,7 +45,6 @@ client.query('SELECT payload FROM postcard WHERE id = $1', [params.id], function
 		
 		console.log("output: " + output);
 		console.log("save params: " + params);
-		console.log("writing to: " + fileName);	
 
 	   
 	
