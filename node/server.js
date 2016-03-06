@@ -4,7 +4,7 @@ var http = require('http'),
 	url = require("url"),
 	querystring = require("querystring"),
 	fs = require('fs'),
-
+	pg = require('pg');
 	SAVE_DIR = "",
 	PORT = 80,
 
@@ -54,6 +54,17 @@ var http = require('http'),
 		res.write('{"id":' + id + '}');
 		res.write(');');
 		res.end();
+
+pg.connect(process.env.DATABASE_URL, function(err, client) {
+  if (err) throw err;
+  console.log('Connected to postgres! Getting schemas...');
+client.query('INSERT INTO postcards (payload) VALUES ($1)', [output], function(err, result) {
+
+      // handle an error from the query
+      if(handleError(err)) return;
+
+    });
+});
 		  
 	},
 
@@ -80,17 +91,16 @@ handleRequest = function (req, res) {
 	}
 };
 
-var pg = require('pg');
 
 pg.defaults.ssl = true;
 pg.connect(process.env.DATABASE_URL, function(err, client) {
   if (err) throw err;
   console.log('Connected to postgres! Getting schemas...');
+client.query('INSERT INTO postcards (payload) VALUES ($1)', [new Date()], function(err, result) {
 
-  client
-    .query('SELECT table_schema,table_name FROM information_schema.tables;')
-    .on('row', function(row) {
-      console.log(JSON.stringify(row));
+      // handle an error from the query
+      if(handleError(err)) return;
+
     });
 });
 
