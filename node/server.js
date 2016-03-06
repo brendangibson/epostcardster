@@ -11,21 +11,10 @@ var http = require('http'),
 	handleRetrievePostcard = function (req,res) {
 		var params = querystring.parse(url.parse(req.url).query);
 		console.log(params.id);
-		fs.readFile(SAVE_DIR + params.id, 'utf8', function (err, data) {
-			if (err) { 
-				console.log("Error reading " + SAVE_DIR + params.id + " : ",err);
-			}
-			var output = querystring.parse(data);
-			console.log(output);
-			
-			res.writeHead(200, {"Content-Type": "application/json"});
-			res.write(params.callback+'(');
-			res.write(JSON.stringify(output));
-			res.write(');');
-			res.end();
-		
-		});
 
+pg.connect(process.env.DATABASE_URL, function(err, client) {
+  if (err) throw err;
+  console.log('Connected to postgres! Getting schemas...');
 client.query('SELECT payload FROM postcard WHERE id = $1', [params.id], function(err, result) {
     //call `done()` to release the client back to the pool
     done();
@@ -34,8 +23,17 @@ client.query('SELECT payload FROM postcard WHERE id = $1', [params.id], function
       return console.error('error running query', err);
     }
     console.log(result.rows[0]);
+			var output = querystring.parse(result.rows[0].payload);
+			console.log(output);
+			
+			res.writeHead(200, {"Content-Type": "application/json"});
+			res.write(params.callback+'(');
+			res.write(JSON.stringify(output));
+			res.write(');');
+			res.end();
     //output: 1
   });
+});
 
 	},
 
@@ -44,27 +42,14 @@ client.query('SELECT payload FROM postcard WHERE id = $1', [params.id], function
 		var params = querystring.parse(url.parse(req.url).query),
 		
 			output =  querystring.stringify(params),
-			id = parseInt(Math.random() * 100000000,10),	
-			fileName = SAVE_DIR + id;
+			id;	
 		
 		console.log("output: " + output);
 		console.log("save params: " + params);
 		console.log("writing to: " + fileName);	
 
-		fs.writeFile(fileName, output, function(err) {
-			if(err) {
-				console.log(err);
-			} else {
-			        console.log("The file was saved! "+id.toString());
-			}
-		}); 
 	   
 	
-		res.writeHead(200, {"Content-Type": "application/json"});
-		res.write(params.callback + '(');
-		res.write('{"id":' + id + '}');
-		res.write(');');
-		res.end();
 
 pg.connect(process.env.DATABASE_URL, function(err, client) {
   if (err) throw err;
@@ -78,6 +63,13 @@ client.query('INSERT INTO postcard (payload) VALUES ($1) RETURNING id', [output]
 	}
 
 console.log('insert result: ', result);
+
+id = result.rows[0].id;
+		res.writeHead(200, {"Content-Type": "application/json"});
+		res.write(params.callback + '(');
+		res.write('{"id":' + id + '}');
+		res.write(');');
+		res.end();
     });
 });
 		  
