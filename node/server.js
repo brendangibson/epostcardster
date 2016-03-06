@@ -95,16 +95,6 @@ handleRequest = function (req, res) {
 
 
 pg.defaults.ssl = true;
-pg.connect(process.env.DATABASE_URL, function(err, client) {
-  if (err) throw err;
-  console.log('Connected to postgres! Getting schemas...');
-client.query('INSERT INTO postcards (payload) VALUES ($1)', [new Date()], function(err, result) {
-
-      // handle an error from the query
-      if(handleError(err)) return;
-
-    });
-});
 
 http.createServer(handleRequest).listen(process.env.PORT || 8888);
 
