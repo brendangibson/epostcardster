@@ -17,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/brendangibson/epostcardster/issues"
   },
-  "homepage": "https://github.com/brendangibson/epostcardster"
+  "homepage": "https://github.com/brendangibson/epostcardster",
+  "dependencies": {
+    "pg": "4.5.1"
+  }
 }
