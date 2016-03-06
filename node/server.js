@@ -61,8 +61,10 @@ pg.connect(process.env.DATABASE_URL, function(err, client) {
 client.query('INSERT INTO postcards (payload) VALUES ($1)', [output], function(err, result) {
 
       // handle an error from the query
-      if(handleError(err)) return;
-
+      if(err) {
+	console.log(err);
+	return;
+	}
     });
 });
 		  
