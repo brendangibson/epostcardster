@@ -7,10 +7,11 @@
 	<link href='http://fonts.googleapis.com/css?family=Mrs+Sheppards' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Nothing+You+Could+Do' rel='stylesheet' type='text/css'>
 	<link href='http://fonts.googleapis.com/css?family=Passion+One:900' rel='stylesheet' type='text/css'>
-	
-<style type="text/css">
 
-	body { 
+	<meta name='image_src' id='image_src' />
+	<style type="text/css">
+
+	body {
 		margin: 0;
 		padding: 0;
 		background-image: url(map.jpg);
@@ -27,7 +28,7 @@
 	p, a {
 		color: black;
 	}
-		
+
 	.container {
 		position: relative;
 
@@ -41,67 +42,67 @@
 		width: 1000px;
 		margin: 0 auto;
 		top: 100px;
-		
+
 		-webkit-transform: rotateZ(1deg);
 		-moz-transform: rotateZ(1deg);
 		-ms-transform: rotateZ(1deg);
 		-o-transform: rotateZ(1deg);
 		transform: rotateZ(1deg);
-		
+
 	}
 	.standalone .container {
 		margin: 20px 0 0 20px;
 		top: 0;
-	}	
+	}
 
 	.postcard {
 
 		width: 100%;
-	  	height: 100%;
-	 	
-	  	-webkit-transform-style: preserve-3d;
-	  	-moz-transform-style: preserve-3d;
-	  	-ms-transform-style: preserve-3d;
-	  	-o-transform-style: preserve-3d;
-	  	transform-style: preserve-3d;
-	  	
-	  	-webkit-transition: -webkit-transform 1s;
-	  	-moz-transition: -moz-transform 1s;
-	  	-ms-transition: -ms-transform 1s;
-	  	-o-transition: -ms-transform 1s;
-	  	
-	  	transition: transform 1s;
-	  	
-	  	-webkit-transform-origin: right center;
-	 	-moz-transform-origin: right center;
-	  	-ms-transform-origin: right center;
-	  	-o-transform-origin: right center;
-	  	transform-origin: right center;
+		height: 100%;
 
-	  	border-radius: 1px 2px 3px 1px;
+		-webkit-transform-style: preserve-3d;
+		-moz-transform-style: preserve-3d;
+		-ms-transform-style: preserve-3d;
+		-o-transform-style: preserve-3d;
+		transform-style: preserve-3d;
 
-	  	-webkit-box-shadow: 3px 9px 5px rgba(50, 50, 50, 0.51);
+		-webkit-transition: -webkit-transform 1s;
+		-moz-transition: -moz-transform 1s;
+		-ms-transition: -ms-transform 1s;
+		-o-transition: -ms-transform 1s;
+
+		transition: transform 1s;
+
+		-webkit-transform-origin: right center;
+		-moz-transform-origin: right center;
+		-ms-transform-origin: right center;
+		-o-transform-origin: right center;
+		transform-origin: right center;
+
+		border-radius: 1px 2px 3px 1px;
+
+		-webkit-box-shadow: 3px 9px 5px rgba(50, 50, 50, 0.51);
 		-moz-box-shadow:    3px 9px 5px rgba(50, 50, 50, 0.51);
 		-o-box-shadow:    3px 9px 5px rgba(50, 50, 50, 0.51);
 		box-shadow:         3px 9px 5px rgba(50, 50, 50, 0.51);
-		
+
 		cursor: url("pto.cur"), e-resize;
 	}
-	
+
 	.flipped {
 		-webkit-transform: translateX( -100% ) rotateY( 180deg );
 		-moz-transform: translateX( -100% ) rotateY( 180deg );
 		-ms-transform: translateX( -100% ) rotateY( 180deg );
 		-o-transform: translateX( -100% ) rotateY( 180deg );
 		transform: translateX( -100% ) rotateY( 180deg );
-		
+
 		-webkit-box-shadow: -3px 9px 5px rgba(50, 50, 50, 0.51);
 		-moz-box-shadow:    -3px 9px 5px rgba(50, 50, 50, 0.51);
 		-ms-box-shadow:    -3px 9px 5px rgba(50, 50, 50, 0.51);
 		-o-box-shadow:    -3px 9px 5px rgba(50, 50, 50, 0.51);
 		box-shadow:         -3px 9px 5px rgba(50, 50, 50, 0.51);
 	}
-	
+
 
 	.postcard .side {
 		-webkit-backface-visibility: hidden;
@@ -109,7 +110,7 @@
 		-ms-backface-visibility: hidden;
 		-o-backface-visibility: hidden;
 		backface-visibility: hidden;
-		
+
 		position: absolute;
 		top: 0;
 		bottom: 0;
@@ -119,58 +120,58 @@
 		background: transparent url(paper_texture.jpg) repeat top left;
 
 	}
-	
+
 	.postcard .front {
 		border: 10px solid transparent;
-		
+
 		-webkit-transform-style: preserve-3d;
-	  	-moz-transform-style: preserve-3d;
-	  	-ms-transform-style: preserve-3d;
-	  	-o-transform-style: preserve-3d;
-	  	transform-style: preserve-3d;
-	
+		-moz-transform-style: preserve-3d;
+		-ms-transform-style: preserve-3d;
+		-o-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+
 	}
-	
+
 	.postcard .front img {
-		z-index: 1; 
-		height: 100%; 
+		z-index: 1;
+		height: 100%;
 		width: 100%;
 		opacity: 0.8;
 	}
-	
 
-	
+
+
 	input.region:hover, input.salutation:hover {
-		opacity: 0.8;	
+		opacity: 0.8;
 	}
 
 	input.region, input.salutation {
-	
+
 		opacity: 1;
-	
+
 		-webkit-transform: rotate(-12deg);
 		-moz-transform: rotate(-12deg);
 		-ms-transform: rotate(-12deg);
 		-o-transform: rotate(-12deg);
 		transform: rotate(-12deg);
-	
+
 		width: auto;
 
-	        position: absolute;
+		position: absolute;
 
 		font-family: 'Mrs Sheppards', cursive;
-	        background-color: transparent;
-	        
-	        text-shadow: 0 0 5px grey;
+		background-color: transparent;
+
+		text-shadow: 0 0 5px grey;
 	}
-	
+
 	input.salutation {
 		color: yellow;
 		font-size: 56px;
 		top: 12%;
 		left: 12%;
 	}
-	
+
 	input.region {
 		font-size: 48px;
 		color: pink;
@@ -180,154 +181,154 @@
 		text-transform: capitalize;
 		text-align: center;
 	}
-	
+
 	.locationShadow {
 		left: 0;
 		background-color: transparent;
-		
-            	text-shadow:
-            	
-            		-3px -3px rgba(255,0,0,1),
-            		3px 3px rgba(255,0,0,1),
-            		-3px 3px rgba(255,0,0,1),
-            		3px -3px rgba(255,0,0,1),
-            		 
-			0 0 rgba(0,0,0,1),
-			-1px -3px rgba(0,0,0,1),
-	                -2px -2px rgba(0,0,0,1),
-	                -3px -1px rgba(0,0,0,1),
-	                -4px 0 rgba(0,0,0,1),
-	                -5px 1px rgba(0,0,0,1),
-	                -6px 2px rgba(0,0,0,1),
-	                -7px 3px rgba(0,0,0,1),
-	                -8px 4px rgba(0,0,0,1),
-	                -9px 5px rgba(0,0,0,1),
-	                -10px 6px rgba(0,0,0,1),
-	                -11px 7px rgba(0,0,0,1),
-	                -12px 8px rgba(0,0,0,1),
-	                -13px 9px rgba(0,0,0,1),
-	                -14px 10px rgba(0,0,0,1),
-	                -15px 11px rgba(0,0,0,1),
-            	        4px 5px rgba(0,0,0,1),
-            	        3px 6px rgba(0,0,0,1),
-            	        2px 7px rgba(0,0,0,1),
-            	        1px 8px rgba(0,0,0,1),
-            	        0px 9px rgba(0,0,0,1),
-            	        -1px 10px rgba(0,0,0,1),
-            	        -2px 11px rgba(0,0,0,1);
-	} 
-	
+
+		text-shadow:
+
+		-3px -3px rgba(255,0,0,1),
+		3px 3px rgba(255,0,0,1),
+		-3px 3px rgba(255,0,0,1),
+		3px -3px rgba(255,0,0,1),
+
+		0 0 rgba(0,0,0,1),
+		-1px -3px rgba(0,0,0,1),
+		-2px -2px rgba(0,0,0,1),
+		-3px -1px rgba(0,0,0,1),
+		-4px 0 rgba(0,0,0,1),
+		-5px 1px rgba(0,0,0,1),
+		-6px 2px rgba(0,0,0,1),
+		-7px 3px rgba(0,0,0,1),
+		-8px 4px rgba(0,0,0,1),
+		-9px 5px rgba(0,0,0,1),
+		-10px 6px rgba(0,0,0,1),
+		-11px 7px rgba(0,0,0,1),
+		-12px 8px rgba(0,0,0,1),
+		-13px 9px rgba(0,0,0,1),
+		-14px 10px rgba(0,0,0,1),
+		-15px 11px rgba(0,0,0,1),
+		4px 5px rgba(0,0,0,1),
+		3px 6px rgba(0,0,0,1),
+		2px 7px rgba(0,0,0,1),
+		1px 8px rgba(0,0,0,1),
+		0px 9px rgba(0,0,0,1),
+		-1px 10px rgba(0,0,0,1),
+		-2px 11px rgba(0,0,0,1);
+	}
+
 	.flipped .locationWrapper, .flipped .locationWrapper:hover {
 		visibility: hidden;
 		display: none;
 	}
-	
-	
+
+
 	.locationWrapper:hover {
 		opacity: 0.8;
 	}
-	
+
 	.locationWrapper {
 
 		opacity: 1;
-		
-		-webkit-transform-style: preserve-3d;
-	  	-moz-transform-style: preserve-3d;
-	  	-ms-transform-style: preserve-3d;
-	  	-o-transform-style: preserve-3d;
-	  	transform-style: preserve-3d;
 
-	        -webkit-transform: rotateZ(-3deg) rotateY( 60deg ) rotateX(-15deg);
+		-webkit-transform-style: preserve-3d;
+		-moz-transform-style: preserve-3d;
+		-ms-transform-style: preserve-3d;
+		-o-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+
+		-webkit-transform: rotateZ(-3deg) rotateY( 60deg ) rotateX(-15deg);
 		-moz-transform: rotateZ(-3deg) rotateY( 60deg ) rotateX(-15deg);
 		-ms-transform: rotateZ(-3deg) rotateY( 60deg ) rotateX(-15deg);
 		-o-transform: rotateZ(-3deg) rotateY( 60deg ) rotateX(-15deg);
-		transform: rotateZ(-3deg) rotateY( 60deg ) rotateX(-15deg); 
-		
-		-webkit-transform-origin: right; 
-		-moz-transform-origin: right; 
+		transform: rotateZ(-3deg) rotateY( 60deg ) rotateX(-15deg);
+
+		-webkit-transform-origin: right;
+		-moz-transform-origin: right;
 		-ms-transform-origin: right;
 		-o-transform-origin: right;
 		transform-origin: right;
-	  	
-	  	height: 200px;
-	  	overflow: hidden;
-	  	left: -350px;
-	  	right: 10px;
-	  	
-	  	position: absolute;
+
+		height: 200px;
+		overflow: hidden;
+		left: -350px;
+		right: 10px;
+
+		position: absolute;
 		top: 33%;
-		margin: 0;	
-		
+		margin: 0;
+
 		visibility: visible;
 		-webkit-transition: visibility 5s;
 		-moz-transition: visisbility 5s;
 		-ms-transition: visibility 5s;
 		-o-transition: visibility 5s;
 		transition: visibility 5s;
-		
+
 		-webkit-backface-visibility: hidden;
 		-moz-backface-visibility: hidden;
 		-ms-backface-visibility: hidden;
 		-o-backface-visibility: hidden;
 		backface-visibility: hidden;
-		
+
 	}
-	
+
 	.locationWrapper h2, .locationWrapper input.loc {
 
-	
+
 		font-family: 'Passion One', cursive;
-	        font-size: 172px;
-	   	
+		font-size: 172px;
+
 		position: absolute;
 		left: 50px;
 		top: 0;
 		margin: 0 auto;
-		
+
 		text-transform: uppercase;
-		
-	  	line-height: 200px;
-	  	
-	  	
+
+		line-height: 200px;
+
+
 	}
-	
+
 	input.loc {
 		color: transparent;
 		background-color: transparent;
 	}
-	
+
 	.locationWrapper h2 {
 		-webkit-text-stroke: 3px white;
-	   	-moz-text-stroke: 3px white;
-	   	-ms-text-stroke: 3px white;
-	   	-o-text-stroke: 3px white;
-	   	text-stroke: 3px white;	
+		-moz-text-stroke: 3px white;
+		-ms-text-stroke: 3px white;
+		-o-text-stroke: 3px white;
+		text-stroke: 3px white;
 	}
-	
+
 	/*h2 {
-		padding-top: 5px;
+	padding-top: 5px;
 	}*/
-	
+
 	h2 span {
 		-webkit-text-fill-color: transparent;
 		-moz-text-fill-color: transparent;
 		-ms-text-fill-color: transparent;
 		-o-text-fill-color: transparent;
 		text-fill-color: transparent;
-		 
-		-webkit-background-clip: text; 
-		-moz-background-clip: text; 
+
+		-webkit-background-clip: text;
+		-moz-background-clip: text;
 		-ms-background-clip: text;
 		-o-background-clip: text;
 		background-clip: text;
-		
-		-webkit-transform-style: preserve-3d;
-	  	-moz-transform-style: preserve-3d;
-	  	-ms-transform-style: preserve-3d;
-	  	-o-transform-style: preserve-3d;
-	  	transform-style: preserve-3d;
 
-		
+		-webkit-transform-style: preserve-3d;
+		-moz-transform-style: preserve-3d;
+		-ms-transform-style: preserve-3d;
+		-o-transform-style: preserve-3d;
+		transform-style: preserve-3d;
+
+
 	}
 
 	.postcard .back {
@@ -336,11 +337,11 @@
 		-ms-transform: rotateY( 180deg );
 		-o-transform: rotateY( 180deg );
 		transform: rotateY( 180deg );
-		
-		
+
+
 	}
-	
-	.postcard .back .footer {	
+
+	.postcard .back .footer {
 		height: 100px;
 		bottom: 10px;
 		left: 10px;
@@ -349,10 +350,10 @@
 		border-top: 1px solid black;
 		text-align: center;
 		line-height: 15px;
-    		color: black;
-    		font-size: 12px;
+		color: black;
+		font-size: 12px;
 	}
-	
+
 	.back textarea, .back input {
 		background-color: transparent;
 		font-family: 'Nothing You Could Do', cursive;
@@ -363,27 +364,27 @@
 		-ms-text-overflow: ellipsis;
 		color: rgba(17,17,91,0.8);
 	}
-	
+
 	.note {
 		padding: 15px;
 		width: 46%;
 		resize: none;
 		position: absolute;
 	}
-	
+
 	.left {
 		top: 10px;
 		left: 10px;
 		height: 515px;
 		border-right: 1px solid black;
 	}
-	
+
 	.right {
 		right: 10px;
 		top: 225px;
 		height: 300px;
 	}
-	
+
 	@-webkit-keyframes spin {
 		from { -webkit-transform: rotate(0deg); }
 		to { -webkit-transform: rotate(360deg); }
@@ -400,7 +401,7 @@
 		from { transform: rotate(0deg); }
 		to { transform: rotate(360deg); }
 	}
-	
+
 	.saving {
 		-webkit-animation: spin 1s linear infinite; /* Safari and Chrome */
 		-moz-animation: spin 1s linear infinite; /* Firefox */
@@ -408,35 +409,35 @@
 		-o-animation: spin 1s linear infinite;
 		animation: spin 1s linear infinite;
 	}
-	
+
 	.stamp:hover {
 		opacity: 0.8;
 	}
-	
-	.stamp { 
+
+	.stamp {
 		position: absolute;
 		top: 10px;
 		right: 10px;
 		width: 250px;
 		height: 202px;
 		text-shadow: -1px 1px 1px #000000;
-		
+
 		-webkit-transform: rotateZ(-2deg);
 		-moz-transform: rotateZ(-2deg);
 		-ms-transform: rotateZ(-2deg);
 		-o-transform: rotateZ(-2deg);
 		transform: rotateZ(-2deg);
-		
+
 		cursor: pointer;
-		
+
 		-webkit-transition: opacity 1s;
 		-moz-transition: opacity 1s;
 		-ms-transition: opacity 1s;
 		-o-transition: opacity 1s;
 		transition: opacity 1s;
-		
+
 	}
-	
+
 	.insideStamp {
 		width: 215px;
 		height: 168px;
@@ -444,14 +445,14 @@
 		top: 16px;
 		left: 16px;
 		border-width: 10px;
-		
+
 		-webkit-border-image: url(stamp-border.png) 8 repeat;
 		-moz-border-image: url(stamp-border.png) 8 repeat;
 		-ms-border-image: url(stamp-border.png) 8 repeat;
 		-o-border-image: url(stamp-border.png) 8 repeat;
 		border-image: url(stamp-border.png) 8 repeat;
 	}
-	
+
 	.stamp p {
 		position: absolute;
 		right: 34px;
@@ -459,13 +460,13 @@
 		font-weight: bold;
 		font-size: 28px;
 	}
-	
+
 	.saved_link {
-    		display: block;
-    		margin: 0 auto;
-    		padding: 5px;
+		display: block;
+		margin: 0 auto;
+		padding: 5px;
 	}
-	
+
 	.addresses {
 		position: absolute;
 		width: 225px;
@@ -474,58 +475,58 @@
 		height: 200px;
 		padding: 10px;
 	}
-	
- 	.addressee_name, .addressee_name:focus, .addresser_name, .addresser_name:focus {
- 		width: 100%;
- 		border-bottom: 1px solid black;
- 		height: 30px;
- 		background: transparent;
- 		white-space: nowrap;
-		
- 	}
- 	
- 	.postmark {
- 		display: none;
- 		opacity: 1;
- 		-webkit-transition: opacity 1s linear;
- 	}
- 	
- 	.saved .postmark {
- 		display: block;
- 		background-color:transparent;
- 		position: absolute;
- 		top: 100px;
- 		right: 200px;
- 		height: 100px;
- 		line-height: 33px;
- 		font-size: 20px;
- 		font-weight: bold;
- 		text-transform: uppercase;
+
+	.addressee_name, .addressee_name:focus, .addresser_name, .addresser_name:focus {
+		width: 100%;
+		border-bottom: 1px solid black;
+		height: 30px;
+		background: transparent;
+		white-space: nowrap;
+
+	}
+
+	.postmark {
+		display: none;
+		opacity: 1;
+		-webkit-transition: opacity 1s linear;
+	}
+
+	.saved .postmark {
+		display: block;
+		background-color:transparent;
+		position: absolute;
+		top: 100px;
+		right: 200px;
+		height: 100px;
+		line-height: 33px;
+		font-size: 20px;
+		font-weight: bold;
+		text-transform: uppercase;
 		text-align: center;
- 		width: 100px;
- 		border-radius: 50px;
- 		border: 2px dashed black;
- 		opacity: 0.6;
- 		z-index: 1;
+		width: 100px;
+		border-radius: 50px;
+		border: 2px dashed black;
+		opacity: 0.6;
+		z-index: 1;
 
- 		-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
- 		-moz-mask-image: -moz-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
- 		-ms-mask-image: -ms-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
- 		-o-mask-image: -o-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
- 		mask-image: gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
- 		
- 		
+		-webkit-mask-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+		-moz-mask-image: -moz-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+		-ms-mask-image: -ms-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+		-o-mask-image: -o-gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
+		mask-image: gradient(linear, left top, left bottom, from(rgba(0,0,0,1)), to(rgba(0,0,0,0)));
 
-				
+
+
+
 		-webkit-transform: rotateZ(-30deg);
 		-moz-transform: rotateZ(-30deg);
 		-ms-transform: rotateZ(-30deg);
 		-o-transform: rotateZ(-30deg);
 		transform: rotateZ(-30deg);
-		
- 	}
 
-</style>
+	}
+
+	</style>
 
 </head>
 <body>
@@ -541,7 +542,7 @@
 					<input type="text" class="loc" value="Arequipa" id="loc" spellcheck="false">
 				</section>
 
-				</div>
+			</div>
 			<div class="back side">
 				<div class="postmark"></div>
 				<textarea class="left note"></textarea>
@@ -563,73 +564,62 @@
 		</div>
 	</div>
 
-<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.js"></script>
 
-<script type="text/javascript">
+	<script type="text/javascript">
 
-//<![CDATA[
+	//<![CDATA[
 
-    
 
-    if (typeof ePostcardster === "undefined") { ePostcardster = {}; }
-    
-    // Replace the following string with the AppId you received from the
-    // Bing Developer Center.
-    var AppId = "hX8q/hNA6maP37uRosaIYXuhG2fqykPQOnvggiE9hSk";
 
-    
-    // Bing API 2.0 code sample demonstrating the use of the
-    // Image SourceType over the JSON Protocol.
+	if (typeof ePostcardster === "undefined") { ePostcardster = {}; }
+
+	// Replace the following string with the AppId you received from the
+	// Bing Developer Center.
+	var AppId = "hX8q/hNA6maP37uRosaIYXuhG2fqykPQOnvggiE9hSk";
+
+
+	// Bing API 2.0 code sample demonstrating the use of the
+	// Image SourceType over the JSON Protocol.
 	var bingSearch = function (searchTerm, count, aspect, style, size, callback, context) {
-    
-	        var requestStr = "https://api.datamarket.azure.com/Bing/Search/v1/Image?"
-	        
-	            // Common request fields (required)
-	            //+ "AppId=" + AppId
-	            + "Query='"+searchTerm+"'"
-	           // + "&Sources=image"
-                + '&$format=json'
-//+'&$callback=' + callback	            
-	            // Common request fields (optional)
-	            /*+ "&Version=2.0"
-	            + "&Market=en-us"*/
-	            + "&Adult='Off'"
-                + "&ImageFilters='";
-	        if (style === "Photo") {        
-	            requestStr += "Style:Photo%2B";
-	        }
-	        if (size === "Large") {
-	            requestStr += 'Size:Large%2B';
-	        }
-	        if (size === "Small") {
-	            requestStr += "Size:Small%2B";
-	        }
-	        if (size === "Medium") {
-	            requestStr += "Size:Medium%2B";
-	        }
-	        if (aspect === "Wide") {
-	            requestStr += "Aspect:Wide";
-	        }
-            requestStr += "'";
-	
-	            // Image-specific request fields (optional)
-	            requestStr += "&$top="+count
-	            + "&$skip=0"
-/*	
-	            // JSON-specific request fields (optional)
-	            + "&JsonType=callback"
-	            + "&JsonCallback=?";
-*/	
+
+		var requestStr = "https://api.datamarket.azure.com/Bing/Search/v1/Image?"
+
+		// Common request fields (required)
+		+ "Query='"+searchTerm+"'"
+		+ '&$format=json'
+		+ "&Adult='On'"
+		+ "&ImageFilters='";
+		if (style === "Photo") {
+			requestStr += "Style:Photo%2B";
+		}
+		if (size === "Large") {
+			requestStr += 'Size:Large%2B';
+		}
+		if (size === "Small") {
+			requestStr += "Size:Small%2B";
+		}
+		if (size === "Medium") {
+			requestStr += "Size:Medium%2B";
+		}
+		if (aspect === "Wide") {
+			requestStr += "Aspect:Wide";
+		}
+		requestStr += "'";
+
+		// Image-specific request fields (optional)
+		requestStr += "&$top="+count
+		+ "&$skip=0"
 		$.ajax({
 			url: requestStr,
 			crossDomain: true,
-cache: true,
-dataType: "jsonp",
-jsonp: '$callback',
-xhrFields: { withCredentials: true },
-            headers: {
-               'Authorization': 'Basic ' + btoa(':' + AppId)
-            },
+			cache: true,
+			dataType: "jsonp",
+			jsonp: '$callback',
+			xhrFields: { withCredentials: true },
+			headers: {
+				'Authorization': 'Basic ' + btoa(':' + AppId)
+			},
 			success: function (data) {
 				callback.call(context,data);
 			},
@@ -646,577 +636,594 @@ xhrFields: { withCredentials: true },
 	var cx = '001898302656551539860:kvjbk_jo1ii';
 
 	var googleSearch = function (searchTerm, count, aspect, style, size, callback, context) {
-    
-	       // var requestStr = "https://www.googleapis.com/customsearch/v1?"
-                   var requestStr = "https://ajax.googleapis.com/ajax/services/search/images?" 
 
-	        
-	            // Common request fields (required)
-                     + "v=" + "1.0"
-	            + "&cx=" + cx
-	            + "&key=" + googleAPIKey
-	            + "&q="+searchTerm;
-	            
-	            + "&searchType=image";
-	            /*
-	            // Common request fields (optional)
-	            + "&Version=2.0"
-	           + "&Market=en-us"
-	            + "&Adult=Off";*/
-	        if (style === "Photo") {        
-	            requestStr += "&imgtype=photo";
-	        }
-	        if (size === "Large") {
-	            requestStr += "&imgsz=large";
-	        }
-	        if (size === "Small") {
-	            requestStr += "&imgsz=small";
-	        }
-	        if (size === "Medium") {
-	            requestStr += "&imgsz=medium";
-	        }/*
-	        if (aspect === "Wide") {
-	            requestStr += "&Image.Filters=Aspect:Wide";
-	        }
+		// var requestStr = "https://www.googleapis.com/customsearch/v1?"
+		var requestStr = "https://ajax.googleapis.com/ajax/services/search/images?"
+
+
+		// Common request fields (required)
+		+ "v=" + "1.0"
+		+ "&cx=" + cx
+		+ "&key=" + googleAPIKey
+		+ "&q="+searchTerm;
+
+		+ "&searchType=image";
+		/*
+		// Common request fields (optional)
+		+ "&Version=2.0"
+		+ "&Market=en-us"
+		+ "&Adult=Off";*/
+		if (style === "Photo") {
+			requestStr += "&imgtype=photo";
+		}
+		if (size === "Large") {
+			requestStr += "&imgsz=large";
+		}
+		if (size === "Small") {
+			requestStr += "&imgsz=small";
+		}
+		if (size === "Medium") {
+			requestStr += "&imgsz=medium";
+		}/*
+		if (aspect === "Wide") {
+		requestStr += "&Image.Filters=Aspect:Wide";
+	}
 	*/
-	            // Image-specific request fields (optional)
-	            requestStr += "&rsz="+count;
+	// Image-specific request fields (optional)
+	requestStr += "&rsz="+count;
 	/*
-	            // JSON-specific request fields (optional)
-	            + "&JsonType=callback"
-	            + "&callback=" + callback;
+	// JSON-specific request fields (optional)
+	+ "&JsonType=callback"
+	+ "&callback=" + callback;
 	*/
-		$.ajax({
-			url: requestStr,
-			crossDomain: true,
-			dataType: "jsonp",
-			success: function (data) {
-				callback.call(context,data);
-			},
-			error: function (e) {
-				window.console && console.log("error in search" + e);
-			},
-			timeout: function () {
-				window.console && console.log("timeout in search");
-			}
-		});
-	};
+	$.ajax({
+		url: requestStr,
+		crossDomain: true,
+		dataType: "jsonp",
+		success: function (data) {
+			callback.call(context,data);
+		},
+		error: function (e) {
+			window.console && console.log("error in search" + e);
+		},
+		timeout: function () {
+			window.console && console.log("timeout in search");
+		}
+	});
+};
 
-	function getParameterByName (name) {
-		  name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
-		  var regexS = "[\\?&]" + name + "=([^&#]*)",
-			regex = new RegExp(regexS),
-			results = regex.exec(window.location.href);
-		  if(results === null) {
-			return "";
-		  } else {
-			return decodeURIComponent(results[1].replace(/\+/g, " "));
-		  }
+function getParameterByName (name) {
+	name = name.replace(/[\[]/, "\\\[").replace(/[\]]/, "\\\]");
+	var regexS = "[\\?&]" + name + "=([^&#]*)",
+	regex = new RegExp(regexS),
+	results = regex.exec(window.location.href);
+	if(results === null) {
+		return "";
+	} else {
+		return decodeURIComponent(results[1].replace(/\+/g, " "));
 	}
-	
-	function sanitize (taintedString) { 
-		return taintedString.replace(/</g,'&lt;');
-	}
-	
-	function getMonthName (date) {
-		var month=new Array(12);
-		month[0]="Jan";
-		month[1]="Feb";
-		month[2]="Mar";
-		month[3]="Apr";
-		month[4]="May";
-		month[5]="Jun";
-		month[6]="Jul";
-		month[7]="Aug";
-		month[8]="Sep";
-		month[9]="Oct";
-		month[10]="Nov";
-		month[11]="Dec";
-		
-		return month[date.getMonth()];
-	}
-	
-    
-	ePostcardster.Postcard = function () {
-	        this.salutation = "";
-	        
-	        this.location = "";
-	        this.region = "";
-	        this.imageURLs = {};
-	        
-	        this.search = function () {};
-	    
-	        this.numLetters = 0;
-	        
-	        this.EVENT_UPDATED_ALL = 'updatedAll';
-	        this.EVENT_LOCATION_UPDATED = 'locationUpdated';
-	        this.EVENT_BACKGROUND_IMAGE = 'updatedBackgroundImage';
-	        this.EVENT_LETTER_IMAGES = 'updatedLetterImages';
-	        this.EVENT_MAP_IMAGE = 'updatedMapImage';
-	        
-	        this.CLASS_UNDER_7 = "under7";
-	        this.CLASS_UNDER_14 = "under14";
-	        this.CLASS_UNDER_21 = "under21";
-	        this.CLASS_UNDER_28 = "under28";
-	        this.CLASS_OVER_28 = "over28";
-	        
-	        this.sizeClasses = [this.CLASS_UNDER_7, this.CLASS_UNDER_14, this.CLASS_UNDER_21, this.CLASS_UNDER_28, this.CLASS_OVER_28];
-	        
-	};
-	    
-    
-	ePostcardster.Postcard.prototype = {
+}
 
-		splitLetters: function () {
-			var i, 
-			    split = "",
-			    stringToSplit = this.$location.val(),
-			    length = stringToSplit.length;
-			for (i = 0; i < length; i++) {
-			    var character = stringToSplit.charAt(i);
-			    if (character) {
+function sanitize (taintedString) {
+	return taintedString.replace(/</g,'&lt;');
+}
+
+function getMonthName (date) {
+	var month=new Array(12);
+	month[0]="Jan";
+	month[1]="Feb";
+	month[2]="Mar";
+	month[3]="Apr";
+	month[4]="May";
+	month[5]="Jun";
+	month[6]="Jul";
+	month[7]="Aug";
+	month[8]="Sep";
+	month[9]="Oct";
+	month[10]="Nov";
+	month[11]="Dec";
+
+	return month[date.getMonth()];
+}
+
+
+ePostcardster.Postcard = function () {
+	this.salutation = "";
+
+	this.location = "";
+	this.region = "";
+	this.imageURLs = {};
+
+	this.search = function () {};
+
+	this.numLetters = 0;
+
+	this.EVENT_UPDATED_ALL = 'updatedAll';
+	this.EVENT_LOCATION_UPDATED = 'locationUpdated';
+	this.EVENT_BACKGROUND_IMAGE = 'updatedBackgroundImage';
+	this.EVENT_LETTER_IMAGES = 'updatedLetterImages';
+	this.EVENT_MAP_IMAGE = 'updatedMapImage';
+
+	this.CLASS_UNDER_7 = "under7";
+	this.CLASS_UNDER_14 = "under14";
+	this.CLASS_UNDER_21 = "under21";
+	this.CLASS_UNDER_28 = "under28";
+	this.CLASS_OVER_28 = "over28";
+
+	this.sizeClasses = [this.CLASS_UNDER_7, this.CLASS_UNDER_14, this.CLASS_UNDER_21, this.CLASS_UNDER_28, this.CLASS_OVER_28];
+
+};
+
+
+ePostcardster.Postcard.prototype = {
+
+	splitLetters: function () {
+		var i,
+		split = "",
+		stringToSplit = this.$location.val(),
+		length = stringToSplit.length;
+		for (i = 0; i < length; i++) {
+			var character = stringToSplit.charAt(i);
+			if (character) {
 				if (character === " ") {
 					character = "&nbsp;";
 				}
-			    	split += '<span class="l' + i + '">' + character + "</span>";
-			    }    
-			}    
-			return split;
-		},
-
-	        updateLocalStorage: function () {
-	            localStorage.setItem(this.baseSearchTerm, JSON.stringify(this.imageURLs));
-	        },
-	        
-	        setBackground: function (response) {},
-	        
-	        setBingBackground: function (response) {
-	        	this.imageURLs.background = response.d.results[0].MediaUrl;
-	        },
-	        
-	        setGoogleBackground: function (response) {
-	        	this.imageURLs.background = response.responseData.results[0].url;
-	        },
-	    
-		updateBackgroundImage: function (response) {
-			if (null !== response) {
-				this.setBackground(response);
-				this.$postcard.trigger(this.EVENT_BACKGROUND_IMAGE);
+				split += '<span class="l' + i + '">' + character + "</span>";
 			}
-		},
-	    
-	        setBackgroundImage: function () {
-			if (this.imageURLs && this.imageURLs.background) {
-				this.$mainImage.attr("src",this.imageURLs.background);
-				this.$stamp.find("img").attr("src",this.imageURLs.background);
-			} 
-		},
-	    
-	        getBackgroundImage: function () {
-	            this.search(this.baseSearchTerm, 1, "Wide", "Photo", "Large", this.updateBackgroundImage, this);
-	        },
-	    
-                 setLetter: function () {},
-                 setBingLetter: function (response) {
-                    var results = response.d.results;
-		    this.imageURLs.letter = [];	
-	            for (var i in results) {
-                         if (results.hasOwnProperty(i)) {
-                             this.imageURLs.letter[i] = results[i].MediaUrl;
-                         }
-                     }
-                 },
-                 setGoogleLetter: function (response) {
-                    var results = response.responseData.results;
-		    this.imageURLs.letter = [];	
-	            for (var i in results) {
-                         if (results.hasOwnProperty(i)) {
-                             this.imageURLs.letter[i] = results[i].url;
-                         }
-                     }
-                 },  
-
-	        updateLetterImages: function (response) {
-			if (null !== response) {
-				this.setLetter(response);
-				this.$postcard.trigger(this.EVENT_LETTER_IMAGES);
-			}
-		},
-	    
-	        setLetterImages: function () {
-			var i;
-			
-			if (this.imageURLs && this.imageURLs.letter) {
-				for (i = 0; i < this.imageURLs.letter.length; i++) {
-					$(".l" + i).css("backgroundImage","url(" + this.imageURLs.letter[i] + ")");
-				}
-			}
-		},
-	    
-	        getLetterImages: function () {
-			this.search(this.baseSearchTerm + " -map -postcard", this.numLetters, null, null, "Medium", this.updateLetterImages, this);
-	        },
-	        
-                 setMap: function () {},
-                 setGoogleMap: function (response) {
-
-                    var results = response.SearchResponse.Image.Results;
-	            for (var i in results) {
-                         if (results.hasOwnProperty(i)) {
-                             this.imageURLs.map[i] = response.responseData.results[i].url;
-                         }
-                     }
-                 },
-                 setBingMap: function (response) {
-                     var results = response.d.results;
-	            for (var i in results) {
-                         if (results.hasOwnProperty(i)) {
-                             this.imageURLs.map[i] = results[i].MediaUrl;
-                         }
-                     }
-                 },
-
-
-	        updateMapImage: function (response) {
-			this.setMap(response);
-			this.$postcard.trigger(this.EVENT_MAP_IMAGE);
-	        },
-	            
-	        setMapImage: function () {
-			var chosenLetter = Math.random*this.numLetters;
-			if (this.imageURLs && this.imageURLs.map && this.imageURLs.map[0]) {
-				$(".l"+chosenLetter).css("backgroundImage", "url(" + this.imageURLs.map[0] + ")");
-			}
-	        },
-	    
-	        getMapImage: function () {
-			this.search(this.baseSearchTerm+" map", 1, null, null, "Medium", this.updateMapImage, this);
-	        },
-	    
-	        getImages: function () {
-	    
-			this.baseSearchTerm = ('"' + this.$location.val() + '" "' + this.$region.val() + '"').toUpperCase();
-			this.numLetters = this.$location.val().length;
-	            
-			this.imageURLs = JSON.parse(localStorage.getItem(this.baseSearchTerm));
-	            
-			if (null === this.imageURLs || Object.keys(this.imageURLs).length === 0) {
-				this.imageURLs = {};
-				this.getBackgroundImage();
-				this.getLetterImages();
-				this.getMapImage();
-			} else {
-				this.$postcard.trigger(this.EVENT_BACKGROUND_IMAGE);
-				this.$postcard.trigger(this.EVENT_LETTER_IMAGES);
-				this.$postcard.trigger(this.EVENT_MAP_IMAGE);
-			}
-	        },
-	        
-	        setLocation: function (location) {
-			this.location = location;
-			this.$location.val(this.location);
-			this.$postcard.trigger(this.EVENT_LOCATION_UPDATED);
-			return this;
-	        },
-	        updateLocation: function () {
-	        	this.location = this.$location.val();
-	        },
-	        setRegion: function (region) {
-			this.region = region;
-			this.$region.val(this.region);
-			return this;
-	        },
-	        updateRegion: function () {
-	        	this.region = this.$region.val();
-	        },
-	        setSalutation: function(salutation) {
-			this.salutation = salutation;
-			this.$salutation.val(this.salutation);
-			return this;
-	        },
-	        updateSalutation: function() {
-	        	this.salutation = this.$salutation.val();
-	        },
-	        setNoteLeft: function (noteLeft) {
-			this.noteLeft = noteLeft;
-			this.$noteLeft.val(this.noteLeft);
-	        },
-	        setNoteRight: function (noteRight) {
-			this.noteRight = noteRight;
-			this.$noteRight.val(this.noteRight);
-	        },
-	        updateNotes: function () {
-			this.noteLeft = this.$noteLeft.val();
-			this.noteRight = this.$noteRight.val();
-	        },
-	        setSavedLink: function (savedLink) {
-			this.savedLink = savedLink;
-			this.$savedLink.attr('href', savedLink);
-			this.$savedLink.html('Postcard saved at '+ savedLink);
-	        },
-	        update: function () {
-	        	this.$postcard.trigger(this.EVENT_UPDATED_ALL);
-	        	return this;
-
-	        },
-	        updateData: function (data) {
-			this.setSalutation(sanitize(data.salutation));
-			this.setLocation(sanitize(data.location));
-			this.setRegion(sanitize(data.region));
-			this.setNoteLeft(sanitize(data.noteLeft));
-			this.setNoteRight(sanitize(data.noteRight));
-			
-			this.$addresseeName.val(sanitize(data.addresseeName));
-			this.$addresserName.val(sanitize(data.addresserName));
-			
-			this.updatePostmark(new Date(parseInt(data.timestamp,10)));
-				
-			this.update();
-			
-			return this;	
-	        },
-	        
-	        get: function () {
-			return {
-				version: "0.1",
-				location: this.$location.val(),
-				salutation:this.$salutation.val(),
-				region: this.$region.val(),
-				noteLeft: this.$noteLeft.val(),
-				noteRight: this.$noteRight.val(),
-				addresseeName: this.$addresseeName.val(),
-				addresserName: this.$addresserName.val(),
-				timestamp: (new Date()).getTime()
-			};
-		},
-		
-		setSelectors: function ($salutation, $locationWrapper, $location, $splitLocation, $locationShadow, $region, $noteLeft, $noteRight, $savedLink, $addresseeName, $addresserName) {
-			this.$salutation = $salutation;
-			this.$locationWrapper = $locationWrapper;
-			this.$location = $location;
-			this.$splitLocation = $splitLocation;
-			this.$locationShadow = $locationShadow;
-			this.$region = $region;
-			this.$noteLeft = $noteLeft;
-			this.$noteRight = $noteRight;
-			this.$savedLink = $savedLink;
-			this.$addresseeName = $addresseeName;
-			this.$addresserName = $addresserName;
-			
-			this.$mainImage = this.$postcard.find(".mainImage");
-			this.$stamp = this.$postcard.find(".stamp");
-			this.$postmark = this.$postcard.find(".postmark");
-		},
-		handleKeyUp: function () {
-			var location = this.$location.val(),
-				length = location.length;
-			
-			if (length > 7) {	
-				fontSize = parseInt(172 * 7 / length,10);
-			} else { 
-				fontSize = 172;
-			}
-			this.$locationWrapper.find("h2, input").css('font-size',fontSize + 'px');
-			this.setLocation(location);
-
-		},
-		updatePostmark: function (timestamp) {
-			this.$postmark.html(timestamp.getDate()+ "<br>" + getMonthName(timestamp)+ "<br>" + (timestamp.getYear()+ 1900));
-		},
-		handleSave: function () {
-			var that = this,
-				saveURL = that.baseURL + "save",
-				CLASS_SAVING = "saving",
-				saveData = this.get(),
-				currentDate = new Date();
-			
-			this.$stamp.addClass(CLASS_SAVING);
-			
-			
-			
-			$.ajax({
-				url: saveURL,
-				data: saveData,
-				crossDomain: true,
-				dataType: 'jsonp',
-				success: function (data) {
-					that.setSavedLink("http://" + location.host + location.pathname + "?id=" + data.id);
-					that.$postcard.addClass("saved");
-					that.$stamp.removeClass(CLASS_SAVING);
-					that.updatePostmark(currentDate);
-				},
-				error: function () {
-					that.$stamp.removeClass(CLASS_SAVING);
-				},
-				timeout: function () {
-					that.$stamp.removeClass(CLASS_SAVING);
-				}
-			});
-		},
-		retrieveFromServer: function (id) {
-			var that = this;
-		
-			$.ajax({
-				url: that.baseURL + "retrieve",
-				data: {
-					"id": id
-				},
-				crossDomain: true,
-				dataType: "jsonp",
-				type: 'GET',
-				success: function (data) {
-					window.console && window.console.log('success: ' + data);
-					that.updateData(data);
-					that.$postcard.addClass("saved");
-				},
-				error: function (e) {
-					window.console && window.console.log('error' + e);
-				},
-				timeout: function (e) {
-					window.console && window.console.log('timeout' + e);
-				}
-
-			});		
-		},
-		init: function ($postcard, baseURL) {
-			var that = this;
-			
-			this.$postcard = $postcard;
-			this.baseURL = baseURL;
-			
-			this.setSelectors($postcard.find(".salutation"), $postcard.find(".locationWrapper"), $postcard.find(".loc"), $postcard.find(".split_loc"), 
-				$postcard.find(".locationShadow"), $postcard.find(".region"),  
-				$postcard.find(".left"), $postcard.find(".right"), $postcard.find(".saved_link"), 
-				$postcard.find(".addressee_name"), $postcard.find(".addresser_name"));
-
-			this.$noteLeft.change(that.updateNotes);
-			this.$noteRight.change(that.updateNotes);
-			
-			this.$postcard.bind(this.EVENT_UPDATED_ALL,function () {
-				that.getImages();
-		        }); 
-		
-		        this.$postcard.bind(this.EVENT_BACKGROUND_IMAGE,function () { that.setBackgroundImage(); });
-		        this.$postcard.bind(this.EVENT_LETTER_IMAGES,function () { 
-				that.$splitLocation.html(that.splitLetters());
-		        	that.setLetterImages(); 
-		        });
-		        this.$postcard.bind(this.EVENT_MAP_IMAGE,function () { that.setMapImage(); });
-		        
-		        this.$postcard.bind(this.EVENT_BACKGROUND_IMAGE,function () { that.updateLocalStorage(); });
-		        this.$postcard.bind(this.EVENT_LETTER_IMAGES,function () { that.updateLocalStorage(); });
-		        this.$postcard.bind(this.EVENT_MAP_IMAGE,function () { that.updateLocalStorage(); });
-		        
-		        this.$postcard.bind(this.EVENT_LOCATION_UPDATED,function () { 
-		        	that.$locationShadow.html(that.$location.val());
-				that.$splitLocation.html(that.splitLetters()); 
-		        });
-
-		
-			this.$postcard.click(function() {
-				var CLASS_FLIPPED = "flipped";
-				var CLASS_UNFLIPPED = "unflipped";
-
-				if (that.$postcard.hasClass(CLASS_FLIPPED)) {
-					that.$postcard.addClass(CLASS_UNFLIPPED);
-					that.$postcard.removeClass(CLASS_FLIPPED);
-				} else {
-					that.$postcard.addClass(CLASS_FLIPPED);
-					that.$postcard.removeClass(CLASS_UNFLIPPED);
-				}
-			});
-			
-			this.$location.keyup(function() { that.handleKeyUp(); });
-		        
-		        this.$location.change(function () {
-		        	that.updateLocation();
-				that.$postcard.trigger(that.EVENT_UPDATED_ALL);
-		        });
-		        
-		        this.$region.change(function() {
-				that.updateRegion();
-				that.$postcard.trigger(that.EVENT_UPDATED_ALL);
-		        });
-		        
-			this.$salutation.change(function() {
-				that.updateSalutation();
-		        });
-		        
-		        this.$postcard.find("input, textarea").click(function(event){
-				event.stopPropagation();
-			});
-			
-			this.$stamp.click(function (event) {
-				event.stopPropagation();
-				that.handleSave();
-			});
-				
-			return this;
-    		},
-		
-		setSearch: function (search) {
-			this.search = search;
-			return this;
-		},
-		
-		initGoogle: function () {
-			this.setSearch(googleSearch);
-			this.setBackground = this.setGoogleBackground;
-                           this.setLetter = this.setGoogleLetter;
-			return this;
-		},
-		
-		initBing: function () {
-			this.setSearch(bingSearch);
-			this.setBackground = this.setBingBackground;
-                           this.setLetter = this.setBingLetter;
-			return this;
 		}
-	};
-    
-	var baseURL = "http://epostcardster.no.de/",
-		defaultSalutation = "Greetings from",
-		defaultLocation = "Arequipa",
-		defaultRegion = "Peru",
-		CLASS_STANDALONE = "standalone";
+		return split;
+	},
 
-        $(document).ready(function () {
+	updateLocalStorage: function () {
+		localStorage.setItem(this.baseSearchTerm, JSON.stringify(this.imageURLs));
+	},
 
-		var id = getParameterByName("id"),
-			salutation = getParameterByName("salutation") || defaultSalutation,
-			location = getParameterByName("location") || defaultLocation,
-			region = getParameterByName("region") || defaultRegion,
-			standAlone = getParameterByName("standalone") || false,
-			
-			myPostcard = new ePostcardster.Postcard().init($(".postcard"), baseURL).initBing();
+	setBackground: function (response) {},
 
-		if (standAlone) {
-			$("body").addClass(CLASS_STANDALONE);
+	setBingBackground: function (response) {
+		this.imageURLs.background = response.d.results[0].MediaUrl;
+	},
+
+	setGoogleBackground: function (response) {
+		this.imageURLs.background = response.responseData.results[0].url;
+	},
+
+	updateBackgroundImage: function (response) {
+		if (null !== response) {
+			this.setBackground(response);
+			this.$postcard.trigger(this.EVENT_BACKGROUND_IMAGE);
 		}
-			
-		var updateBackgroundImage = function (response) {
-			myPostcard.updateBackgroundImage(response);
-	        },
-	        
-	        updateMapImage = function (response) {
-			myPostcard.updateMapImage(response);
-	        },
-	
-	        updateLetterImages = function (response) {
-			myPostcard.updateLetterImages(response);
-	        };	 
-		
-		if (id) {
-			myPostcard.retrieveFromServer(id);
+	},
+
+	setBackgroundImage: function () {
+		if (this.imageURLs && this.imageURLs.background) {
+			this.$mainImage.attr("src",this.imageURLs.background);
+			this.$stamp.find("img").attr("src",this.imageURLs.background);
+			$('#image_src').attr('content',this.imageURLs.background)
+		}
+	},
+
+	getBackgroundImage: function () {
+		this.search(this.baseSearchTerm, 1, "Wide", "Photo", "Large", this.updateBackgroundImage, this);
+	},
+
+	setLetter: function () {},
+	setBingLetter: function (response) {
+		var results = response.d.results;
+		this.imageURLs.letter = [];
+		for (var i in results) {
+			if (results.hasOwnProperty(i)) {
+				this.imageURLs.letter[i] = results[i].MediaUrl;
+			}
+		}
+	},
+	setGoogleLetter: function (response) {
+		var results = response.responseData.results;
+		this.imageURLs.letter = [];
+		for (var i in results) {
+			if (results.hasOwnProperty(i)) {
+				this.imageURLs.letter[i] = results[i].url;
+			}
+		}
+	},
+
+	updateLetterImages: function (response) {
+		if (null !== response) {
+			this.setLetter(response);
+			this.$postcard.trigger(this.EVENT_LETTER_IMAGES);
+		}
+	},
+
+	setLetterImages: function () {
+		var i;
+
+		if (this.imageURLs && this.imageURLs.letter) {
+			for (i = 0; i < this.imageURLs.letter.length; i++) {
+				$(".l" + i).css("backgroundImage","url(" + this.imageURLs.letter[i] + ")");
+			}
+		}
+	},
+
+	getLetterImages: function () {
+		this.search(this.baseSearchTerm + " -map -postcard", this.numLetters, null, null, "Medium", this.updateLetterImages, this);
+	},
+
+	setMap: function () {},
+	setGoogleMap: function (response) {
+
+		var results = response.SearchResponse.Image.Results;
+		for (var i in results) {
+			if (results.hasOwnProperty(i)) {
+				this.imageURLs.map[i] = response.responseData.results[i].url;
+			}
+		}
+	},
+	setBingMap: function (response) {
+		var results = response.d.results;
+		for (var i in results) {
+			if (results.hasOwnProperty(i)) {
+				this.imageURLs.map[i] = results[i].MediaUrl;
+			}
+		}
+	},
+
+	updateMapImage: function (response) {
+		this.setMap(response);
+		this.$postcard.trigger(this.EVENT_MAP_IMAGE);
+	},
+
+	setMapImage: function () {
+		var chosenLetter = Math.random*this.numLetters;
+		if (this.imageURLs && this.imageURLs.map && this.imageURLs.map[0]) {
+			$(".l"+chosenLetter).css("backgroundImage", "url(" + this.imageURLs.map[0] + ")");
+		}
+	},
+
+	getMapImage: function () {
+		this.search(this.baseSearchTerm+" map", 1, null, null, "Medium", this.updateMapImage, this);
+	},
+
+	updateTitle: function () {
+		$('title').html('ePostcardster | ' + this.$salutation.val() ' ' + this.$location.val() + ', ' + this.$region.val());
+	},
+
+	getImages: function () {
+
+		// only search if there is a location to avoid Bing pr0n
+		if (!this.$location.val()) {
+			return;
+		}
+
+		this.baseSearchTerm = ('"' + this.$location.val() + '" "' + this.$region.val() + '"').toUpperCase();
+		this.numLetters = this.$location.val().length;
+
+		this.imageURLs = JSON.parse(localStorage.getItem(this.baseSearchTerm));
+
+		if (null === this.imageURLs || Object.keys(this.imageURLs).length === 0) {
+			this.imageURLs = {};
+			this.getBackgroundImage();
+			this.getLetterImages();
+			this.getMapImage();
 		} else {
-			myPostcard.setSalutation(salutation).setLocation(location).setRegion(region).update();
+			this.$postcard.trigger(this.EVENT_BACKGROUND_IMAGE);
+			this.$postcard.trigger(this.EVENT_LETTER_IMAGES);
+			this.$postcard.trigger(this.EVENT_MAP_IMAGE);
 		}
-	});	
-	 
-	
-    //]]>
+	},
 
-    </script>
+	setLocation: function (location) {
+		this.location = location;
+		this.$location.val(this.location);
+		this.$postcard.trigger(this.EVENT_LOCATION_UPDATED);
+		return this;
+	},
+	updateLocation: function () {
+		this.location = this.$location.val();
+	},
+	setRegion: function (region) {
+		this.region = region;
+		this.$region.val(this.region);
+		return this;
+	},
+	updateRegion: function () {
+		this.region = this.$region.val();
+	},
+	setSalutation: function(salutation) {
+		this.salutation = salutation;
+		this.$salutation.val(this.salutation);
+		return this;
+	},
+	updateSalutation: function() {
+		this.salutation = this.$salutation.val();
+	},
+	setNoteLeft: function (noteLeft) {
+		this.noteLeft = noteLeft;
+		this.$noteLeft.val(this.noteLeft);
+	},
+
+	setNoteRight: function (noteRight) {
+		this.noteRight = noteRight;
+		this.$noteRight.val(this.noteRight);
+	},
+
+	updateNotes: function () {
+		this.noteLeft = this.$noteLeft.val();
+		this.noteRight = this.$noteRight.val();
+	},
+
+	setSavedLink: function (savedLink) {
+		this.savedLink = savedLink;
+		this.$savedLink.attr('href', savedLink);
+		this.$savedLink.html('Postcard saved at '+ savedLink);
+	},
+
+	update: function () {
+		this.$postcard.trigger(this.EVENT_UPDATED_ALL);
+		return this;
+	},
+
+	updateData: function (data) {
+		this.setSalutation(sanitize(data.salutation));
+		this.setLocation(sanitize(data.location));
+		this.setRegion(sanitize(data.region));
+		this.setNoteLeft(sanitize(data.noteLeft));
+		this.setNoteRight(sanitize(data.noteRight));
+
+		this.$addresseeName.val(sanitize(data.addresseeName));
+		this.$addresserName.val(sanitize(data.addresserName));
+
+		this.updatePostmark(new Date(parseInt(data.timestamp,10)));
+
+		this.update();
+
+		return this;
+	},
+
+	get: function () {
+		return {
+			version: "0.1",
+			location: this.$location.val(),
+			salutation:this.$salutation.val(),
+			region: this.$region.val(),
+			noteLeft: this.$noteLeft.val(),
+			noteRight: this.$noteRight.val(),
+			addresseeName: this.$addresseeName.val(),
+			addresserName: this.$addresserName.val(),
+			timestamp: (new Date()).getTime()
+		};
+	},
+
+	setSelectors: function ($salutation, $locationWrapper, $location, $splitLocation, $locationShadow, $region, $noteLeft, $noteRight, $savedLink, $addresseeName, $addresserName) {
+		this.$salutation = $salutation;
+		this.$locationWrapper = $locationWrapper;
+		this.$location = $location;
+		this.$splitLocation = $splitLocation;
+		this.$locationShadow = $locationShadow;
+		this.$region = $region;
+		this.$noteLeft = $noteLeft;
+		this.$noteRight = $noteRight;
+		this.$savedLink = $savedLink;
+		this.$addresseeName = $addresseeName;
+		this.$addresserName = $addresserName;
+
+		this.$mainImage = this.$postcard.find(".mainImage");
+		this.$stamp = this.$postcard.find(".stamp");
+		this.$postmark = this.$postcard.find(".postmark");
+	},
+
+	handleKeyUp: function () {
+		var location = this.$location.val(),
+		length = location.length;
+
+		if (length > 7) {
+			fontSize = parseInt(172 * 7 / length,10);
+		} else {
+			fontSize = 172;
+		}
+		this.$locationWrapper.find("h2, input").css('font-size',fontSize + 'px');
+		this.setLocation(location);
+	},
+
+	updatePostmark: function (timestamp) {
+		this.$postmark.html(timestamp.getDate()+ "<br>" + getMonthName(timestamp)+ "<br>" + (timestamp.getYear()+ 1900));
+	},
+
+	handleSave: function () {
+		var that = this,
+		saveURL = that.baseURL + "save",
+		CLASS_SAVING = "saving",
+		saveData = this.get(),
+		currentDate = new Date();
+
+		this.$stamp.addClass(CLASS_SAVING);
+
+		$.ajax({
+			url: saveURL,
+			data: saveData,
+			crossDomain: true,
+			dataType: 'jsonp',
+			success: function (data) {
+				that.setSavedLink("http://" + location.host + location.pathname + "?id=" + data.id);
+				that.$postcard.addClass("saved");
+				that.$stamp.removeClass(CLASS_SAVING);
+				that.updatePostmark(currentDate);
+			},
+			error: function () {
+				that.$stamp.removeClass(CLASS_SAVING);
+			},
+			timeout: function () {
+				that.$stamp.removeClass(CLASS_SAVING);
+			}
+		});
+	},
+	retrieveFromServer: function (id) {
+		var that = this;
+
+		$.ajax({
+			url: that.baseURL + "retrieve",
+			data: {
+				"id": id
+			},
+			crossDomain: true,
+			dataType: "jsonp",
+			type: 'GET',
+			success: function (data) {
+				window.console && window.console.log('success: ' + data);
+				that.updateData(data);
+				that.$postcard.addClass("saved");
+			},
+			error: function (e) {
+				window.console && window.console.log('error' + e);
+			},
+			timeout: function (e) {
+				window.console && window.console.log('timeout' + e);
+			}
+
+		});
+	},
+	init: function ($postcard, baseURL) {
+		var that = this;
+
+		this.$postcard = $postcard;
+		this.baseURL = baseURL;
+
+		this.setSelectors($postcard.find(".salutation"), $postcard.find(".locationWrapper"), $postcard.find(".loc"), $postcard.find(".split_loc"),
+		$postcard.find(".locationShadow"), $postcard.find(".region"),
+		$postcard.find(".left"), $postcard.find(".right"), $postcard.find(".saved_link"),
+		$postcard.find(".addressee_name"), $postcard.find(".addresser_name"));
+
+		this.$noteLeft.change(that.updateNotes);
+		this.$noteRight.change(that.updateNotes);
+
+		this.$postcard.bind(this.EVENT_UPDATED_ALL,function () {
+			that.getImages();
+		});
+
+		this.$postcard.bind(this.EVENT_UPDATED_ALL,function () {
+			that.updateTitle();
+		});
+
+		this.$postcard.bind(this.EVENT_BACKGROUND_IMAGE,function () { that.setBackgroundImage(); });
+		this.$postcard.bind(this.EVENT_LETTER_IMAGES,function () {
+			that.$splitLocation.html(that.splitLetters());
+			that.setLetterImages();
+		});
+		this.$postcard.bind(this.EVENT_MAP_IMAGE,function () { that.setMapImage(); });
+
+		this.$postcard.bind(this.EVENT_BACKGROUND_IMAGE,function () { that.updateLocalStorage(); });
+		this.$postcard.bind(this.EVENT_LETTER_IMAGES,function () { that.updateLocalStorage(); });
+		this.$postcard.bind(this.EVENT_MAP_IMAGE,function () { that.updateLocalStorage(); });
+
+		this.$postcard.bind(this.EVENT_LOCATION_UPDATED,function () {
+			that.$locationShadow.html(that.$location.val());
+			that.$splitLocation.html(that.splitLetters());
+		});
+
+
+		this.$postcard.click(function() {
+			var CLASS_FLIPPED = "flipped";
+			var CLASS_UNFLIPPED = "unflipped";
+
+			if (that.$postcard.hasClass(CLASS_FLIPPED)) {
+				that.$postcard.addClass(CLASS_UNFLIPPED);
+				that.$postcard.removeClass(CLASS_FLIPPED);
+			} else {
+				that.$postcard.addClass(CLASS_FLIPPED);
+				that.$postcard.removeClass(CLASS_UNFLIPPED);
+			}
+		});
+
+		this.$location.keyup(function() { that.handleKeyUp(); });
+
+		this.$location.change(function () {
+			that.updateLocation();
+			that.$postcard.trigger(that.EVENT_UPDATED_ALL);
+		});
+
+		this.$region.change(function() {
+			that.updateRegion();
+			that.$postcard.trigger(that.EVENT_UPDATED_ALL);
+		});
+
+		this.$salutation.change(function() {
+			that.updateSalutation();
+		});
+
+		this.$postcard.find("input, textarea").click(function(event){
+			event.stopPropagation();
+		});
+
+		this.$stamp.click(function (event) {
+			event.stopPropagation();
+			that.handleSave();
+		});
+
+		return this;
+	},
+
+	setSearch: function (search) {
+		this.search = search;
+		return this;
+	},
+
+	initGoogle: function () {
+		this.setSearch(googleSearch);
+		this.setBackground = this.setGoogleBackground;
+		this.setLetter = this.setGoogleLetter;
+		return this;
+	},
+
+	initBing: function () {
+		this.setSearch(bingSearch);
+		this.setBackground = this.setBingBackground;
+		this.setLetter = this.setBingLetter;
+		return this;
+	}
+};
+
+var baseURL = "http://epostcardster.no.de/",
+defaultSalutation = "Greetings from",
+defaultLocation = "Arequipa",
+defaultRegion = "Peru",
+CLASS_STANDALONE = "standalone";
+
+$(document).ready(function () {
+
+	var id = getParameterByName("id"),
+	salutation = getParameterByName("salutation") || defaultSalutation,
+	location = getParameterByName("location") || defaultLocation,
+	region = getParameterByName("region") || defaultRegion,
+	standAlone = getParameterByName("standalone") || false,
+
+	myPostcard = new ePostcardster.Postcard().init($(".postcard"), baseURL).initBing();
+
+	if (standAlone) {
+		$("body").addClass(CLASS_STANDALONE);
+	}
+
+	var updateBackgroundImage = function (response) {
+		myPostcard.updateBackgroundImage(response);
+	},
+
+	updateMapImage = function (response) {
+		myPostcard.updateMapImage(response);
+	},
+
+	updateLetterImages = function (response) {
+		myPostcard.updateLetterImages(response);
+	};
+
+	if (id) {
+		myPostcard.retrieveFromServer(id);
+	} else {
+		myPostcard.setSalutation(salutation).setLocation(location).setRegion(region).update();
+	}
+});
+
+
+//]]>
+
+</script>
 
 </body>
 </html>
