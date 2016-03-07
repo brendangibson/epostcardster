@@ -584,12 +584,12 @@
 	// Image SourceType over the JSON Protocol.
 	var bingSearch = function (searchTerm, count, aspect, style, size, callback, context) {
 
-		var requestStr = "https://api.datamarket.azure.com/Bing/Search/v1/Image?"
+		var requestStr = baseURL + "getimages?"
 
 		// Common request fields (required)
 		+ "Query='"+searchTerm+"'"
 		+ '&$format=json'
-		+ "&Adult='On'"
+		+ "&Adult='Moderate'"
 		+ "&ImageFilters='";
 		if (style === "Photo") {
 			requestStr += "Style:Photo%2B";
@@ -610,17 +610,14 @@
 
 		// Image-specific request fields (optional)
 		requestStr += "&$top="+count
-		+ "&$skip=0"
+		+ "&$skip=0";
+
 		$.ajax({
 			url: requestStr,
 			crossDomain: true,
 			cache: true,
-			dataType: "jsonp",
-			jsonp: '$callback',
-			xhrFields: { withCredentials: true },
-			headers: {
-				'Authorization': 'Basic ' + btoa(':' + AppId)
-			},
+	dataType: "jsonp",
+	//jsonp: '$callback',
 			success: function (data) {
 				callback.call(context,data);
 			},
@@ -885,7 +882,7 @@ ePostcardster.Postcard.prototype = {
 	},
 
 	updateTitle: function () {
-		$('title').html('ePostcardster | ' + this.$salutation.val() ' ' + this.$location.val() + ', ' + this.$region.val());
+		$('title').html('ePostcardster | ' + this.$salutation.val() + ' ' + this.$location.val() + ', ' + this.$region.val());
 	},
 
 	getImages: function () {
