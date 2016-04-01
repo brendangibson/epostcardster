@@ -24,6 +24,7 @@
 	textarea, input, textarea:focus, input:focus {
 		outline: none;
 		border: none;
+        -webkit-border-radius: 0;
 	}
 
 	p, a {
@@ -39,10 +40,10 @@
 		-o-perspective: 2000;
 		perspective: 2000;
 
-		height: 666px;
-		width: 1000px;
+		height: 45vw;
+		width: 90vw;
 		margin: 0 auto;
-		top: 100px;
+		top: 5vw;
 
 		-webkit-transform: rotateZ(1deg);
 		-moz-transform: rotateZ(1deg);
@@ -52,7 +53,7 @@
 
 	}
 	.standalone .container {
-		margin: 20px 0 0 20px;
+		margin: 1vw 0 0 1vw;
 		top: 0;
 	}
 
@@ -80,12 +81,10 @@
 		-o-transform-origin: right center;
 		transform-origin: right center;
 
-		border-radius: 1px 2px 3px 1px;
-
-		-webkit-box-shadow: 3px 9px 5px rgba(50, 50, 50, 0.51);
-		-moz-box-shadow:    3px 9px 5px rgba(50, 50, 50, 0.51);
-		-o-box-shadow:    3px 9px 5px rgba(50, 50, 50, 0.51);
-		box-shadow:         3px 9px 5px rgba(50, 50, 50, 0.51);
+		-webkit-box-shadow: 1vw 3vw 2vw rgba(50, 50, 50, 0.51);
+		-moz-box-shadow:    1vw 3vw 2vw rgba(50, 50, 50, 0.51);
+		-o-box-shadow:    1vw 3vw 2vw rgba(50, 50, 50, 0.51);
+		box-shadow:         1vw 3vw 2vw rgba(50, 50, 50, 0.51);
 
 		cursor: url("pto.cur"), e-resize;
 	}
@@ -97,11 +96,11 @@
 		-o-transform: translateX( -100% ) rotateY( 180deg );
 		transform: translateX( -100% ) rotateY( 180deg );
 
-		-webkit-box-shadow: -3px 9px 5px rgba(50, 50, 50, 0.51);
-		-moz-box-shadow:    -3px 9px 5px rgba(50, 50, 50, 0.51);
-		-ms-box-shadow:    -3px 9px 5px rgba(50, 50, 50, 0.51);
-		-o-box-shadow:    -3px 9px 5px rgba(50, 50, 50, 0.51);
-		box-shadow:         -3px 9px 5px rgba(50, 50, 50, 0.51);
+		-webkit-box-shadow: -1vw 3vw 2vw rgba(50, 50, 50, 0.51);
+		-moz-box-shadow:    -1vw 3vw 2vw rgba(50, 50, 50, 0.51);
+		-ms-box-shadow:    -1vw 3vw 2vw rgba(50, 50, 50, 0.51);
+		-o-box-shadow:    -1vw 3vw 2vw rgba(50, 50, 50, 0.51);
+		box-shadow:         -1vw 3vw 2vw rgba(50, 50, 50, 0.51);
 	}
 
 
@@ -123,8 +122,7 @@
 	}
 
 	.postcard .front {
-		border: 10px solid transparent;
-
+        padding: 1vw;
 		-webkit-transform-style: preserve-3d;
 		-moz-transform-style: preserve-3d;
 		-ms-transform-style: preserve-3d;
@@ -163,21 +161,21 @@
 		font-family: 'Mrs Sheppards', cursive;
 		background-color: transparent;
 
-		text-shadow: 0 0 5px grey;
+		text-shadow: 0 0 1vw grey;
 	}
 
 	input.salutation {
 		color: yellow;
-		font-size: 56px;
-		top: 12%;
-		left: 12%;
+		font-size: 3vw;
+        padding: 1vw;
+		top: 8%;
+		left: 8%;
 	}
 
 	input.region {
-		font-size: 48px;
+		font-size: 3vw;
 		color: pink;
-		right: 0;
-		left: 40%;
+		right: 15%;
 		bottom: 12%;
 		text-transform: capitalize;
 		text-align: center;
@@ -239,11 +237,11 @@
 		-o-transform-style: preserve-3d;
 		transform-style: preserve-3d;
 
-		-webkit-transform: rotateZ(-3deg) rotateY( 60deg ) rotateX(-15deg);
-		-moz-transform: rotateZ(-3deg) rotateY( 60deg ) rotateX(-15deg);
-		-ms-transform: rotateZ(-3deg) rotateY( 60deg ) rotateX(-15deg);
-		-o-transform: rotateZ(-3deg) rotateY( 60deg ) rotateX(-15deg);
-		transform: rotateZ(-3deg) rotateY( 60deg ) rotateX(-15deg);
+		-webkit-transform: translate(-50%, -50%) rotateZ(-3deg) rotateY( 60deg ) rotateX(-15deg);
+		-moz-transform: translate(-50%, -50%) rotateZ(-3deg) rotateY( 60deg ) rotateX(-15deg);
+		-ms-transform: translate(-50%, -50%) rotateZ(-3deg) rotateY( 60deg ) rotateX(-15deg);
+		-o-transform: translate(-50%, -50%) rotateZ(-3deg) rotateY( 60deg ) rotateX(-15deg);
+		transform: translate(-50%, -50%) rotateZ(-3deg) rotateY( 60deg ) rotateX(-15deg);
 
 		-webkit-transform-origin: right;
 		-moz-transform-origin: right;
@@ -251,18 +249,18 @@
 		-o-transform-origin: right;
 		transform-origin: right;
 
-		height: 200px;
-		overflow: hidden;
-		left: -350px;
-		right: 10px;
+		height: 15vw;
+        width: 100%;
+		overflow: visible;
+		left: 30%;
 
 		position: absolute;
-		top: 33%;
+		top: 50%;
 		margin: 0;
 
 		visibility: visible;
 		-webkit-transition: visibility 5s;
-		-moz-transition: visisbility 5s;
+		-moz-transition: visibility 5s;
 		-ms-transition: visibility 5s;
 		-o-transition: visibility 5s;
 		transition: visibility 5s;
@@ -279,18 +277,17 @@
 
 
 		font-family: 'Passion One', cursive;
-		font-size: 172px;
+		font-size: 15vw;
+        padding:  0 0 5vw 5vw;
+        margin: -5vw 0 0 -5vw;
 
 		position: absolute;
-		left: 50px;
 		top: 0;
 		margin: 0 auto;
 
 		text-transform: uppercase;
 
-		line-height: 200px;
-
-
+		line-height: 15vw;
 	}
 
 	input.loc {
@@ -306,9 +303,6 @@
 		text-stroke: 3px white;
 	}
 
-	/*h2 {
-	padding-top: 5px;
-	}*/
 
 	h2 span {
 		-webkit-text-fill-color: transparent;
@@ -343,22 +337,22 @@
 	}
 
 	.postcard .back .footer {
-		height: 100px;
-		bottom: 10px;
-		left: 10px;
-		right: 10px;
+		height: 7vw;
+		bottom: 1vw;
+		left: 1vw;
+		right: 1vw;
 		position: absolute;
 		border-top: 1px solid black;
 		text-align: center;
-		line-height: 15px;
+		line-height: 1vw;
 		color: black;
-		font-size: 12px;
+		font-size: 1vw;
 	}
 
 	.back textarea, .back input {
 		background-color: transparent;
 		font-family: 'Nothing You Could Do', cursive;
-		font-size: 24px;
+		font-size: 1.7vw;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		-o-text-overflow: ellipsis;
@@ -367,23 +361,23 @@
 	}
 
 	.note {
-		padding: 15px;
+		padding: 2vw;
 		width: 46%;
 		resize: none;
 		position: absolute;
 	}
 
 	.left {
-		top: 10px;
-		left: 10px;
-		height: 515px;
+		top: 1vw;
+		left: 1vw;
+		height: 31vw;
 		border-right: 1px solid black;
 	}
 
 	.right {
-		right: 10px;
-		top: 225px;
-		height: 300px;
+		right: 0;
+		top: 14vw;
+		height: 19vw;
 	}
 
 	@-webkit-keyframes spin {
@@ -417,10 +411,10 @@
 
 	.stamp {
 		position: absolute;
-		top: 10px;
-		right: 10px;
-		width: 250px;
-		height: 202px;
+		top: 1vw;
+		right: 3vw;
+		width: 18vw;
+		height: 15vw;
 		text-shadow: -1px 1px 1px #000000;
 
 		-webkit-transform: rotateZ(-2deg);
@@ -440,12 +434,9 @@
 	}
 
 	.insideStamp {
-		width: 215px;
-		height: 168px;
 		position: absolute;
-		top: 16px;
-		left: 16px;
-		border-width: 10px;
+		border-width: 1vw;
+        width: 100%;
 
 		-webkit-border-image: url(stamp-border.png) 8 repeat;
 		-moz-border-image: url(stamp-border.png) 8 repeat;
@@ -456,31 +447,33 @@
 
 	.stamp p {
 		position: absolute;
-		right: 34px;
+        margin: 0;
+		right: 1vw;
+        top: 1vw;
 		color: white;
 		font-weight: bold;
-		font-size: 28px;
+		font-size: 2.5vw;
 	}
 
 	.saved_link {
 		display: block;
 		margin: 0 auto;
-		padding: 5px;
+		padding: 1vw;
 	}
 
 	.addresses {
 		position: absolute;
-		width: 225px;
-		top: 10px;
-		left: 50%;
-		height: 200px;
-		padding: 10px;
+		width: 20vw;
+		top: 1vw;
+		left: 51%;
+		height: 10vw;
+		padding: 1vw;
 	}
 
 	.addressee_name, .addressee_name:focus, .addresser_name, .addresser_name:focus {
 		width: 100%;
 		border-bottom: 1px solid black;
-		height: 30px;
+		height: 3vw;
 		background: transparent;
 		white-space: nowrap;
 
@@ -496,16 +489,16 @@
 		display: block;
 		background-color:transparent;
 		position: absolute;
-		top: 100px;
-		right: 200px;
-		height: 100px;
-		line-height: 33px;
-		font-size: 20px;
+		top: 8vw;
+		right: 18vw;
+		height: 7vw;
+        width: 7vw;
+		line-height: 2.2vw;
+		font-size: 1.5vw;
 		font-weight: bold;
 		text-transform: uppercase;
 		text-align: center;
-		width: 100px;
-		border-radius: 50px;
+		border-radius: 50%;
 		border: 2px dashed black;
 		opacity: 0.6;
 		z-index: 1;
@@ -1014,11 +1007,11 @@ ePostcardster.Postcard.prototype = {
 		length = location.length;
 
 		if (length > 7) {
-			fontSize = parseInt(172 * 7 / length,10);
+			fontSize = parseInt(15 * 10 / length,10);
 		} else {
-			fontSize = 172;
+			fontSize = 15;
 		}
-		this.$locationWrapper.find("h2, input").css('font-size',fontSize + 'px');
+		this.$locationWrapper.find("h2, input").css('font-size',fontSize + 'vw').css('line-height', fontSize + 'vw');
 		this.setLocation(location);
 	},
 
