@@ -1021,7 +1021,7 @@ ePostcardster.Postcard.prototype = {
 
 	handleSave: function () {
 		var that = this,
-		saveURL = that.baseURL + "save",
+		saveURL = that.baseURL,
 		CLASS_SAVING = "saving",
 		saveData = this.get(),
 		currentDate = new Date();
@@ -1033,6 +1033,7 @@ ePostcardster.Postcard.prototype = {
 			data: saveData,
 			crossDomain: true,
 			dataType: 'jsonp',
+			type: 'PUT',
 			success: function (data) {
 				that.setSavedLink("http://" + location.host + location.pathname + "?id=" + data.id);
 				that.$postcard.addClass("saved");
