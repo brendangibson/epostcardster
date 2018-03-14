@@ -1060,7 +1060,7 @@ ePostcardster.Postcard.prototype = {
 			success: function (data) {
 				window.console && window.console.log('success: ',data);
 				if (data && data.Item) {
-					that.updateData(data);
+					that.updateData(data.Item);
 					that.$postcard.addClass("saved");
 				} else {
 					window.console && window.console.log('error: no Item');
