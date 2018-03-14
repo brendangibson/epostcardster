@@ -1051,7 +1051,7 @@ ePostcardster.Postcard.prototype = {
 		var that = this;
 
 		$.ajax({
-			url: that.baseURL + "retrieve",
+			url: that.baseURL,
 			data: {
 				"id": id
 			},
@@ -1172,7 +1172,7 @@ ePostcardster.Postcard.prototype = {
 	}
 };
 
-var baseURL = "https://sleepy-plains-65475.herokuapp.com/",
+var baseURL = "https://gbxgndglcc.execute-api.us-east-2.amazonaws.com/test/epostcardster/",
 defaultSalutation = "Greetings from",
 defaultLocation = "Arequipa",
 defaultRegion = "Peru",
