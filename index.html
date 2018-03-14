@@ -696,7 +696,7 @@ function getParameterByName (name) {
 }
 
 function sanitize (taintedString) {
-	return taintedString.replace(/</g,'&lt;');
+	return taintedString ? taintedString.replace(/</g,'&lt;') : '';
 }
 
 function getMonthName (date) {
@@ -1056,18 +1056,21 @@ ePostcardster.Postcard.prototype = {
 				"id": id
 			},
 			crossDomain: true,
-			dataType: "jsonp",
 			type: 'GET',
 			success: function (data) {
-				window.console && window.console.log('success: ' + data);
-				that.updateData(data);
-				that.$postcard.addClass("saved");
+				window.console && window.console.log('success: ',data);
+				if (data && data.Item) {
+					that.updateData(data);
+					that.$postcard.addClass("saved");
+				} else {
+					window.console && window.console.log('error: no Item');
+				}
 			},
 			error: function (e) {
-				window.console && window.console.log('error' + e);
+				window.console && window.console.log('error: ',e);
 			},
 			timeout: function (e) {
-				window.console && window.console.log('timeout' + e);
+				window.console && window.console.log('timeout: ',e);
 			}
 
 		});
