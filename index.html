@@ -1030,15 +1030,16 @@ ePostcardster.Postcard.prototype = {
 
 		$.ajax({
 			url: saveURL,
-			data: saveData,
+			data: JSON.stringify(saveData),
 			crossDomain: true,
-			dataType: 'jsonp',
-			type: 'PUT',
+			type: 'POST',
 			success: function (data) {
-				that.setSavedLink("http://" + location.host + location.pathname + "?id=" + data.id);
+				const savedLink = "http://" + location.host + location.pathname + "?id=" + data.id
+				that.setSavedLink(savedLink);
 				that.$postcard.addClass("saved");
 				that.$stamp.removeClass(CLASS_SAVING);
 				that.updatePostmark(currentDate);
+				window && window.history && window.history.replaceState( {} , document.title, savedLink );
 			},
 			error: function () {
 				that.$stamp.removeClass(CLASS_SAVING);
