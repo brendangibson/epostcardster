@@ -571,16 +571,17 @@
 	// Replace the following string with the AppId you received from the
 	// Bing Developer Center.
 	var AppId = "hX8q/hNA6maP37uRosaIYXuhG2fqykPQOnvggiE9hSk";
-
+  const key1 = "997332ffa5f04abaa4e5ab007d735f3b";
+	const bingURL = "https://api.cognitive.microsoft.com/bing/v7.0/images";
 
 	// Bing API 2.0 code sample demonstrating the use of the
 	// Image SourceType over the JSON Protocol.
 	var bingSearch = function (searchTerm, count, aspect, style, size, callback, context) {
 
-		var requestStr = baseURL + "getimages?"
+		var requestStr = bingURL + "?q="
 
 		// Common request fields (required)
-		+ "Query='"+searchTerm+"'"
+		+ searchTerm
 		+ '&$format=json'
 		+ "&Adult='Moderate'"
 		+ "&ImageFilters='";
@@ -609,6 +610,9 @@
 			url: requestStr,
 			crossDomain: true,
 			cache: true,
+			headers : {
+        'Ocp-Apim-Subscription-Key' : key1,
+      }
 	dataType: "jsonp",
 	//jsonp: '$callback',
 			success: function (data) {
