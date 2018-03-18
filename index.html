@@ -572,8 +572,8 @@
 	// Bing Developer Center.
 	var AppId = "hX8q/hNA6maP37uRosaIYXuhG2fqykPQOnvggiE9hSk";
   const key1 = "997332ffa5f04abaa4e5ab007d735f3b";
-	const bingURL = "https://api.cognitive.microsoft.com/bing/v7.0/images";
-
+//	const bingURL = "https://api.cognitive.microsoft.com/bing/v7.0/images";
+const bingURL = "https://api.cognitive.microsoft.com/bing/v7.0/search";
 	// Bing API 2.0 code sample demonstrating the use of the
 	// Image SourceType over the JSON Protocol.
 	var bingSearch = function (searchTerm, count, aspect, style, size, callback, context) {
@@ -581,8 +581,9 @@
 		var requestStr = bingURL + "?q="
 
 		// Common request fields (required)
-		+ searchTerm
-		+ '&$format=json'
+		+ encodeURIComponent(searchTerm.split(' ')[0])
+        + "&responseFilter=images"
+	/*	+ '&$format=json'
 		+ "&Adult='Moderate'"
 		+ "&ImageFilters='";
 		if (style === "Photo") {
@@ -601,19 +602,19 @@
 			requestStr += "Aspect:Wide";
 		}
 		requestStr += "'";
-
 		// Image-specific request fields (optional)
 		requestStr += "&$top="+count
 		+ "&$skip=0";
-
+*/
 		$.ajax({
 			url: requestStr,
-			crossDomain: true,
+	//		crossDomain: true,
 			cache: true,
 			headers : {
         'Ocp-Apim-Subscription-Key' : key1,
-      }
-	dataType: "jsonp",
+      },
+
+	//dataType: "jsonp",
 	//jsonp: '$callback',
 			success: function (data) {
 				callback.call(context,data);
@@ -776,7 +777,7 @@ ePostcardster.Postcard.prototype = {
 	setBackground: function (response) {},
 
 	setBingBackground: function (response) {
-		this.imageURLs.background = response.d.results[0].MediaUrl;
+		this.imageURLs.background = response && response.images && response.images.value  && response.images.value[0] && response.images.value[0].contentUrl;
 	},
 
 	setGoogleBackground: function (response) {
@@ -804,11 +805,11 @@ ePostcardster.Postcard.prototype = {
 
 	setLetter: function () {},
 	setBingLetter: function (response) {
-		var results = response.d.results;
+		var results = response && response.images && response.images.value;
 		this.imageURLs.letter = [];
 		for (var i in results) {
 			if (results.hasOwnProperty(i)) {
-				this.imageURLs.letter[i] = results[i].MediaUrl;
+				this.imageURLs.letter[i] = results[i].contentUrl;
 			}
 		}
 	},
@@ -854,10 +855,10 @@ ePostcardster.Postcard.prototype = {
 		}
 	},
 	setBingMap: function (response) {
-		var results = response.d.results;
+		var results = response && response.images && response.images.value;
 		for (var i in results) {
 			if (results.hasOwnProperty(i)) {
-				this.imageURLs.map[i] = results[i].MediaUrl;
+				this.imageURLs.map[i] = results[i].contentUrl;
 			}
 		}
 	},
