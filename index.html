@@ -568,6 +568,57 @@
 
 	if (typeof ePostcardster === "undefined") { ePostcardster = {}; }
 
+	const qwantURL = "https://api.qwant.com/api/search/images";
+
+	var qwantSearch = function (searchTerm, count, aspect, style, size, callback, context) {
+
+		var requestStr = qwantURL + "?q="
+
+		// Common request fields (required)
+		+ encodeURIComponent(searchTerm.split(' ')[0])
+    //    + "&responseFilter=images"
+	/*	+ '&$format=json'
+		+ "&Adult='Moderate'"
+		+ "&ImageFilters='";
+		if (style === "Photo") {
+			requestStr += "Style:Photo%2B";
+		}
+		if (size === "Large") {
+			requestStr += 'Size:Large%2B';
+		}
+		if (size === "Small") {
+			requestStr += "Size:Small%2B";
+		}
+		if (size === "Medium") {
+			requestStr += "Size:Medium%2B";
+		}
+		if (aspect === "Wide") {
+			requestStr += "Aspect:Wide";
+		}
+		requestStr += "'";
+		// Image-specific request fields (optional)
+		requestStr += "&$top="+count
+		+ "&$skip=0";
+*/
+		$.ajax({
+			url: requestStr,
+	//		crossDomain: true,
+			cache: true
+
+	//dataType: "jsonp",
+	//jsonp: '$callback',
+			success: function (data) {
+				callback.call(context,data);
+			},
+			error: function (e) {
+				window.console && console.log("error in search" + e);
+			},
+			timeout: function () {
+				window.console && console.log("timeout in search");
+			}
+		});
+	};
+
 	// Replace the following string with the AppId you received from the
 	// Bing Developer Center.
 	var AppId = "hX8q/hNA6maP37uRosaIYXuhG2fqykPQOnvggiE9hSk";
@@ -776,6 +827,11 @@ ePostcardster.Postcard.prototype = {
 
 	setBackground: function (response) {},
 
+	setQwantBackground: function (response) {
+		this.imageURLs.background = response && response.data &&
+			response.data.results  && response.data.results && response.data.results.items[0] &&
+			response.data.results.items[0].media;
+	},
 	setBingBackground: function (response) {
 		this.imageURLs.background = response && response.images && response.images.value  && response.images.value[0] && response.images.value[0].contentUrl;
 	},
@@ -804,6 +860,16 @@ ePostcardster.Postcard.prototype = {
 	},
 
 	setLetter: function () {},
+	setQwantLetter: function (response) {
+		var results = response && response.data &&
+			response.data.results  && response.data.results && response.data.results.items;
+		this.imageURLs.letter = [];
+		for (var i in results) {
+			if (results.hasOwnProperty(i)) {
+				this.imageURLs.letter[i] = results[i].media;
+			}
+		}
+	},
 	setBingLetter: function (response) {
 		var results = response && response.images && response.images.value;
 		this.imageURLs.letter = [];
@@ -1180,6 +1246,13 @@ ePostcardster.Postcard.prototype = {
 		this.setLetter = this.setBingLetter;
 		return this;
 	}
+
+	initQwant: function () {
+		this.setSearch(qwantSearch);
+		this.setBackground = this.setQuantBackground;
+		this.setLetter = this.setQuantLetter;
+		return this;
+	}
 };
 
 var baseURL = "https://gbxgndglcc.execute-api.us-east-2.amazonaws.com/test/epostcardster/",
@@ -1196,7 +1269,7 @@ $(document).ready(function () {
 	region = getParameterByName("region") || defaultRegion,
 	standAlone = getParameterByName("standalone") || false,
 
-	myPostcard = new ePostcardster.Postcard().init($(".postcard"), baseURL).initBing();
+	myPostcard = new ePostcardster.Postcard().init($(".postcard"), baseURL).initQwant();
 
 	if (standAlone) {
 		$("body").addClass(CLASS_STANDALONE);
