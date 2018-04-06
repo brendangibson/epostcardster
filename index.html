@@ -603,15 +603,15 @@
 		$.ajax({
 			url: requestStr,
 	//		crossDomain: true,
-			cache: true
+			cache: true,
 
 	//dataType: "jsonp",
-	//jsonp: '$callback',
+	jsonp: '$callback',
 			success: function (data) {
 				callback.call(context,data);
 			},
 			error: function (e) {
-				window.console && console.log("error in search" + e);
+				window.console && console.log("error in search", e);
 			},
 			timeout: function () {
 				window.console && console.log("timeout in search");
@@ -917,6 +917,14 @@ ePostcardster.Postcard.prototype = {
 		for (var i in results) {
 			if (results.hasOwnProperty(i)) {
 				this.imageURLs.map[i] = response.responseData.results[i].url;
+			}
+		}
+	},
+	setQwantMap: function (response) {
+		var results = response && response.data && response.data.results;
+		for (var i in results) {
+			if (results.hasOwnProperty(i)) {
+				this.imageURLs.map[i] = results[i].media;
 			}
 		}
 	},
@@ -1245,7 +1253,7 @@ ePostcardster.Postcard.prototype = {
 		this.setBackground = this.setBingBackground;
 		this.setLetter = this.setBingLetter;
 		return this;
-	}
+	},
 
 	initQwant: function () {
 		this.setSearch(qwantSearch);
