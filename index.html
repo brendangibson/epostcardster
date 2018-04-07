@@ -184,6 +184,7 @@
 	.locationShadow {
 		left: 0;
 		background-color: transparent;
+        position: relative !important;
 
 		text-shadow:
 
@@ -250,9 +251,8 @@
 		transform-origin: right;
 
 		height: 15vw;
-        width: 100%;
 		overflow: visible;
-		left: 30%;
+		left: 50%;
 
 		position: absolute;
 		top: 50%;
@@ -270,6 +270,8 @@
 		-ms-backface-visibility: hidden;
 		-o-backface-visibility: hidden;
 		backface-visibility: hidden;
+
+        transform: translate(-50%, -50%);
 
 	}
 
@@ -323,7 +325,7 @@
 		-o-transform-style: preserve-3d;
 		transform-style: preserve-3d;
 
-
+        background-size: cover;
 	}
 
 	.postcard .back {
@@ -575,7 +577,8 @@
 		var requestStr = qwantURL + "?q="
 
 		// Common request fields (required)
-		+ encodeURIComponent(searchTerm.split(' ')[0])
+		+ encodeURIComponent(searchTerm)
+        + "&count=" + count
     //    + "&responseFilter=images"
 	/*	+ '&$format=json'
 		+ "&Adult='Moderate'"
@@ -829,8 +832,8 @@ ePostcardster.Postcard.prototype = {
 
 	setQwantBackground: function (response) {
 		this.imageURLs.background = response && response.data &&
-			response.data.results  && response.data.results && response.data.results.items[0] &&
-			response.data.results.items[0].media;
+			response.data.result  && response.data.result && response.data.result.items[0] &&
+			response.data.result.items[0].media;
 	},
 	setBingBackground: function (response) {
 		this.imageURLs.background = response && response.images && response.images.value  && response.images.value[0] && response.images.value[0].contentUrl;
@@ -841,6 +844,7 @@ ePostcardster.Postcard.prototype = {
 	},
 
 	updateBackgroundImage: function (response) {
+
 		if (null !== response) {
 			this.setBackground(response);
 			this.$postcard.trigger(this.EVENT_BACKGROUND_IMAGE);
@@ -862,13 +866,15 @@ ePostcardster.Postcard.prototype = {
 	setLetter: function () {},
 	setQwantLetter: function (response) {
 		var results = response && response.data &&
-			response.data.results  && response.data.results && response.data.results.items;
-		this.imageURLs.letter = [];
+			response.data.result && response.data.result && response.data.result.items;
+		if (results) {
+        this.imageURLs.letter = [];
 		for (var i in results) {
-			if (results.hasOwnProperty(i)) {
-				this.imageURLs.letter[i] = results[i].media;
+			if (results.hasOwnProperty(i) && i > 0) {
+				this.imageURLs.letter.push(results[i].media);
 			}
 		}
+       }
 	},
 	setBingLetter: function (response) {
 		var results = response && response.images && response.images.value;
@@ -900,8 +906,13 @@ ePostcardster.Postcard.prototype = {
 		var i;
 
 		if (this.imageURLs && this.imageURLs.letter) {
-			for (i = 0; i < this.imageURLs.letter.length; i++) {
-				$(".l" + i).css("backgroundImage","url(" + this.imageURLs.letter[i] + ")");
+			for (i = 0; i < this.location.length; i++) {
+                var image = this.imageURLs.letter[i];
+                if (!image) {
+                    image = this.imageURLs.letter[parseInt(Math.random() * this.imageURLs.letter.length, 10)]
+                }
+
+				$(".l" + i).css("backgroundImage","url(" + image + ")");
 			}
 		}
 	},
@@ -921,10 +932,10 @@ ePostcardster.Postcard.prototype = {
 		}
 	},
 	setQwantMap: function (response) {
-		var results = response && response.data && response.data.results;
+		var results = response && response.data && response.data.result && response.data.result.items;
 		for (var i in results) {
 			if (results.hasOwnProperty(i)) {
-				this.imageURLs.map[i] = results[i].media;
+				this.imageURLs.map.push(results[i].media);
 			}
 		}
 	},
@@ -968,6 +979,7 @@ ePostcardster.Postcard.prototype = {
 		this.numLetters = this.$location.val().length;
 
 		this.imageURLs = JSON.parse(localStorage.getItem(this.baseSearchTerm));
+
 
 		if (null === this.imageURLs || Object.keys(this.imageURLs).length === 0) {
 			this.imageURLs = {};
@@ -1081,15 +1093,16 @@ ePostcardster.Postcard.prototype = {
 		this.$postmark = this.$postcard.find(".postmark");
 	},
 
-	handleKeyUp: function () {
+	setFontSize: function () {
 		var location = this.$location.val(),
 		length = location.length;
 
 		if (length > 7) {
-			fontSize = parseInt(15 * 10 / length,10);
+			fontSize = parseInt(15 * 9 / length,10);
 		} else {
 			fontSize = 15;
 		}
+        this.$locationWrapper.css('height', fontSize + 'vw');
 		this.$locationWrapper.find("h2, input").css('font-size',fontSize + 'vw').css('line-height', fontSize + 'vw');
 		this.setLocation(location);
 	},
@@ -1139,7 +1152,6 @@ ePostcardster.Postcard.prototype = {
 			crossDomain: true,
 			type: 'GET',
 			success: function (data) {
-				window.console && window.console.log('success: ',data);
 				if (data && data.Item) {
 					that.updateData(data.Item);
 					that.$postcard.addClass("saved");
@@ -1175,6 +1187,9 @@ ePostcardster.Postcard.prototype = {
 		});
 
 		this.$postcard.bind(this.EVENT_UPDATED_ALL,function () {
+			that.setFontSize();
+		});
+		this.$postcard.bind(this.EVENT_UPDATED_ALL,function () {
 			that.updateTitle();
 		});
 
@@ -1208,7 +1223,7 @@ ePostcardster.Postcard.prototype = {
 			}
 		});
 
-		this.$location.keyup(function() { that.handleKeyUp(); });
+		this.$location.keyup(function() { that.setFontSize(); });
 
 		this.$location.change(function () {
 			that.updateLocation();
